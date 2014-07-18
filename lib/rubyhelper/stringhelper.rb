@@ -3,7 +3,23 @@
 #CRYXOR DEPENDENCY
 require 'digest'
 
-class String
+module StringHelper
+
+  def to_plain
+	self.tr(
+                "ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+                "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+  end
+
+  def to_f
+    self.gsub!(',', '.')
+    super
+  end
+
+  #To_i with delimiter
+  def to_i_wd(char=' ')
+    self.delete(char.to_s).to_i
+  end
 
   #CRYXOR
   def ^(k)
@@ -28,4 +44,17 @@ class String
     end
   end
 
+  #Returns true or false
+  def to_t
+    if self == "true"
+      return true
+    else
+      return false
+    end
+  end
+
+end
+
+class String
+  prepend StringHelper
 end

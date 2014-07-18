@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
-  s.version     = '0.1.0'
-  s.date        = '2014-05-01'
-  s.summary     = "Init"
+  s.version     = '0.2.1'
+  s.date        = '2014-07-15'
+  s.summary     = "Remove accent (to_plain)"
   s.description = "A list of utils for the basic Class of ruby."
   s.authors     = [
             	  "poulet_a"

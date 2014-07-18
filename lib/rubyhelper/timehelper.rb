@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #encoding: utf-8
 
-class Time
+module TimeHelper
 
   def to_simple_date(sep='/')
     sep = sep.to_s.tr_s('%', '')
@@ -12,6 +12,10 @@ class Time
     self.strftime('%R')
   end
 
+end
+
+class Time
+  prepend TimeHelper
 end
 
 # Date (Year, Month, Day):

@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-class Array
+module ArrayHelper
 
   # A simple function like to_s(), but return a clean String
   # for exemple :
@@ -31,4 +31,9 @@ class Array
     end
     return str[0..(-sep.size - 1)]
   end
+
+end
+
+class Array
+  prepend ArrayHelper
 end
