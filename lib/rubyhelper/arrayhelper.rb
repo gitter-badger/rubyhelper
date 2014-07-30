@@ -32,6 +32,14 @@ module ArrayHelper
     return str[0..(-sep.size - 1)]
   end
 
+  def sum
+    return self.size > 0 ? (self.map{|e| e.to_s.to_i.reduce(:+).to_i) : 0
+  end
+
+  def average
+    return self.size > 0 ? self.sum / self.size : 0
+  end
+
 end
 
 class Array
