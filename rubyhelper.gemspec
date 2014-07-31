@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
-  s.version     = '0.2.2'
+  s.version     = '0.2.3.1'
   s.date        = '2014-07-15'
-  s.summary     = "Add average and sum to array"
+  s.summary     = "fix maxs"
   s.description = "A list of utils for the basic Class of ruby."
   s.authors     = [
             	  "poulet_a"

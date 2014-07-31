@@ -47,6 +47,11 @@ module ArrayHelper
     return (self.size > 0) ? (self.sumf / self.size.to_f) : (0.0)
   end
 
+  #TODO benchmark with sort{|e| -e}
+  def maxs(n=1)
+    return Array(self.sort[(-n)..(-1)])
+  end
+
 end
 
 class Array
