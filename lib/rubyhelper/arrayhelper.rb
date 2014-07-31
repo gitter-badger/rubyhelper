@@ -14,7 +14,6 @@ module ArrayHelper
     to_clean_s_with_string(sep.to_s)
   end
   
-  private
   def to_clean_s_with_string sep
     str = String.new
     self.each{|e| str = str + e.to_s + sep.to_s}
@@ -33,11 +32,19 @@ module ArrayHelper
   end
 
   def sum
-    return self.size > 0 ? (self.map{|e| e.to_s.to_i.reduce(:+).to_i) : 0
+    return (self.size > 0) ? (self.map{|e| e.to_s.to_i}.reduce(:+)) : (0)
+  end
+
+  def sumf
+    return (self.size > 0) ? (self.map{|e| e.to_s.to_f}.reduce(:+)) : (0.0)
   end
 
   def average
-    return self.size > 0 ? self.sum / self.size : 0
+    return (self.size > 0) ? (self.sum / self.size) : (0)
+  end
+
+  def averagef
+    return (self.size > 0) ? (self.sumf / self.size.to_f) : (0.0)
   end
 
 end
