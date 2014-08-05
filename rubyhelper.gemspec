@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
-  s.version     = '0.2.3.2'
-  s.date        = '2014-07-15'
-  s.summary     = "add to_case"
+  s.version     = '0.2.3.4'
+  s.date        = '2014-08-5'
+  s.summary     = "add to_ascii, improve to_plain"
   s.description = "A list of utils for the basic Class of ruby."
   s.authors     = [
             	  "poulet_a"

@@ -5,10 +5,18 @@ require 'digest'
 
 module StringHelper
 
-  def to_plain
-    return self.tr(
+  def to_plain(case_mod = nil)
+    string = self.tr(
       "ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
       "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+    case case_mod
+    when :upcase
+      return string.upcase
+    when :downcase
+      return string.downcase
+    else
+      return string
+    end
   end
   
   def to_case(case_mod = :downcase)
@@ -17,6 +25,10 @@ module StringHelper
     else
       return self.to_plain.downcase
     end
+  end
+  
+  def to_ascii(case_mod = :upcase)
+    return to_case(case_mod)
   end
 
   def to_f
