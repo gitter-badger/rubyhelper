@@ -8,8 +8,9 @@ module TimeHelper
     self.strftime('%d' + sep + '%m' + sep + '%Y')
   end
 
-  def to_simple_time
-    self.strftime('%R')
+  def to_simple_time(sep=':', second=false)
+    sep = sep.to_s.tr_s('%', '')
+    self.strftime('%H' + sep + '%M' + (second ? (sep + '%S') : ("")))
   end
 
 end
