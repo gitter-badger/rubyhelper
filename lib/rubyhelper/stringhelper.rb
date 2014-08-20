@@ -18,7 +18,7 @@ module StringHelper
       return string
     end
   end
-  
+
   def to_case(case_mod = :downcase)
     if case_mod == :upcase
       return self.to_plain.upcase
@@ -26,7 +26,7 @@ module StringHelper
       return self.to_plain.downcase
     end
   end
-  
+
   def to_ascii(case_mod = :upcase)
     return to_case(case_mod)
   end
@@ -71,6 +71,16 @@ module StringHelper
     else
       return false
     end
+  end
+
+  #get only the digits and symbols in the string
+  def get_int
+    return self.gsub(/[^\d\-\+]/, "")
+  end
+
+  #as get_int but with . and ,
+  def get_float
+    return self.gsub(/[^\d\.\,\-\+]/, "")
   end
 
 end
