@@ -1,6 +1,8 @@
+require_relative "lib/rubyhelper/version"
+
 Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
-  s.version     = '0.2.4'
+  s.version     = RubyHelper::VERSION
   s.date        = '2014-08-20'
   s.summary     = "to_int / float"
   s.description = "A list of utils for the basic Class of ruby."
