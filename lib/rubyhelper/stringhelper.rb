@@ -6,30 +6,32 @@ require 'digest'
 module StringHelper
 
   # == Params
-  #     case_mode:
-  #             if :upcase => change the case with.upcase
-  #             if :downcase => change the case to with.downcase
+  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   # Remove accents from the string. Change the case as first argument
   def to_plain(case_mod = nil)
-    string = self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-                     "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
-    return s.to_case(case_mode)
+    s = self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+                "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+    return s.to_case(case_mod)
   end
 
-  # permit to do upcase/downcase easier with a simple param
+  # == Params
+  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
+  # permit to do upcase/downcase/capitalize easier with a simple param
   def to_case(case_mod = :downcase)
     case case_mod
     when :upcase
-      return string.upcase
+      return self.upcase
     when :downcase
-      return string.downcase
+      return self.downcase
+    when :capitalize
+      return self.capitalize
     else
-      return string
+      return self
     end
   end
 
   # == Params
-  #     case_mod: nil (not changement), :upcase or :downcase
+  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   #     replace: a caracter to replace non-ascii chars
   # return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
   def to_ascii(case_mod = nil, replace="")
