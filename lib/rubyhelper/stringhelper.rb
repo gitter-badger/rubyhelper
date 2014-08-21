@@ -31,12 +31,12 @@ module StringHelper
   end
 
   # == Params
-  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   #     replace: a caracter to replace non-ascii chars
+  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   # return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
-  def to_ascii(case_mod = nil, replace="")
+  def to_ascii(replace="", case_mod = nil)
     s = String.new
-    self.each_char do |c|
+    self.to_plain.each_char do |c|
       s += ((c.ord > 255) ? (replace.to_s) : (c))
     end
     return s.to_case(case_mod)
