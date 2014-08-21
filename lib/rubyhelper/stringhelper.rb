@@ -5,10 +5,19 @@ require 'digest'
 
 module StringHelper
 
+  # == Params
+  #     case_mode:
+  #             if :upcase => change the case with.upcase
+  #             if :downcase => change the case to with.downcase
+  # Remove accents from the string. Change the case as first argument
   def to_plain(case_mod = nil)
-    string = self.tr(
-      "ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-      "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+    string = self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+                     "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+    return s.to_case(case_mode)
+  end
+
+  # permit to do upcase/downcase easier with a simple param
+  def to_case(case_mod = :downcase)
     case case_mod
     when :upcase
       return string.upcase
@@ -19,21 +28,25 @@ module StringHelper
     end
   end
 
-  def to_case(case_mod = :downcase)
-    if case_mod == :upcase
-      return self.to_plain.upcase
-    else
-      return self.to_plain.downcase
+  # == Params
+  #     case_mod: nil (not changement), :upcase or :downcase
+  #     replace: a caracter to replace non-ascii chars
+  # return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
+  def to_ascii(case_mod = nil, replace="")
+    s = String.new
+    self.each_char do |c|
+      s += ((c.ord > 255) ? (replace.to_s) : (c))
     end
+    return s.to_case(case_mod)
   end
 
-  def to_ascii(case_mod = :upcase)
-    return to_case(case_mod)
-  end
-
+  # improvement of to_f to count "," caracter as "."
   def to_f
+    s = self.dup
     self.gsub!(',', '.')
-    super
+    f = super
+    self.replace(s)
+    return f
   end
 
   #To_i with delimiter
@@ -55,7 +68,10 @@ module StringHelper
     Digest::SHA2.hexdigest(self)
   end
 
-  #STATIC
+  # ==Param
+  #     n: number of char
+  #     char: char to replace if the initial str is too short
+  # Get a str with a static length
   def static(n, char=' ')
     if self.size < n
       return self + char * (n - self.size).to_i
@@ -64,12 +80,15 @@ module StringHelper
     end
   end
 
-  #Returns true or false
+  #Returns true or false if the string if "true" or "false"
   def to_t
-    if self == "true"
+    case self
+    when "true"
       return true
-    else
+    when "false"
       return false
+    else
+      return nil
     end
   end
 

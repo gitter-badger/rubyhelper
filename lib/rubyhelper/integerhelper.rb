@@ -3,6 +3,7 @@
 
 module IntegerHelper
 
+  # get - or + function of the sign of the integer
   def sign
     return (self < 0) ? ("-") : ("+")
   end
