@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
   s.version     = RubyHelper::VERSION
   s.date        = '2014-08-20'
-  s.summary     = "to_int / float"
+  s.summary     = "add to_plain"
   s.description = "A list of utils for the basic Class of ruby."
   s.authors     = [
             	  "poulet_a"
