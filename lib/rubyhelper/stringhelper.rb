@@ -110,6 +110,11 @@ module StringHelper
     return self.gsub(/[^\d\.\,\-\+]/, "")
   end
 
+  # Capitalize a sequence
+  def scapitalize
+    return self.split.map(&:capitalize).join(' ')
+  end
+
 end
 
 class String
