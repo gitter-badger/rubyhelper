@@ -68,6 +68,14 @@ module ArrayHelper
     return Array(self.sort[0..(n-1)])
   end
 
+  # The Same as compact but remove empty string too
+  def compacti
+    return self.map{|e| e = nil if e == "" ; e}.compact
+  end
+  def compacti!
+    return self.replace(self.compacti)
+  end
+
 end
 
 class Array

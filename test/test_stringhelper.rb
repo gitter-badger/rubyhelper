@@ -70,4 +70,13 @@ class StringHelperTest < Minitest::Test
     assert_equal("ea\n ze +13\n.12\n à nnazdaz\n\t\n\r d".get_float(), "+13.12")
   end
 
+  def test_nil!
+    a = "" ; a.nil!
+    b = " " ; b.nil!
+    c = "test" ; c.nil!
+    assert_equal(nil, a)
+    assert_equal("test", b)
+    assert_equal(" ", c)
+  end
+
 end

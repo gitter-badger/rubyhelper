@@ -35,4 +35,8 @@ class ArrayHelperTest < Minitest::Test
     assert_equal([-1,1,1,2,2,3,14,44], [2,3,1,14,44,-1,1,2].maxs(100))
   end
 
+  def test_compacti
+    assert_equal([" "], ["", " ", nil].compacti)
+  end
+
 end

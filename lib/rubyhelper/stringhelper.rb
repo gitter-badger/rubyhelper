@@ -136,6 +136,12 @@ module StringHelper
     return self.replace(self.scapitalize)
   end
 
+  # Replace self by nil if self is empty
+  def nil!
+    self.replace(nil) if self.empty?
+    return self
+  end
+
 end
 
 class String
