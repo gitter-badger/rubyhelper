@@ -16,8 +16,11 @@ module StringHelper
   end
 
   #to_plain alias
-  def p
-    return self.to_plain
+  def p(replace= " ")
+    return self.to_plain(nil, replace)
+  end
+  def p!(replace= " ")
+    return self.replace(self.p(replace))
   end
 
   # == Params
@@ -34,6 +37,9 @@ module StringHelper
     else
       return self
     end
+  end
+  def to_case!(case_mod = :downcase)
+    return self.replace(self.to_case(case_mod))
   end
 
   # == Params
@@ -75,6 +81,9 @@ module StringHelper
   def sha2
     Digest::SHA2.hexdigest(self)
   end
+  def sha2!
+    return self.replace(self.sha2)
+  end
 
   # ==Param
   #     n: number of char
@@ -86,6 +95,9 @@ module StringHelper
     else
       return self[0...n]
     end
+  end
+  def static!(n, char=' ')
+    return self.replace(self.static(n, char))
   end
 
   #Returns true or false if the string if "true" or "false"
@@ -104,15 +116,24 @@ module StringHelper
   def get_int
     return self.gsub(/[^\d\-\+]/, "")
   end
+  def get_int!
+    return self.replace(self.get_int)
+  end
 
   #as get_int but with . and ,
   def get_float
     return self.gsub(/[^\d\.\,\-\+]/, "")
   end
+  def get_float!
+    return self.replace(self.get_float)
+  end
 
   # Capitalize a sequence
   def scapitalize
     return self.split.map(&:capitalize).join(' ')
+  end
+  def scapitalize!
+    return self.replace(self.scapitalize)
   end
 
 end
