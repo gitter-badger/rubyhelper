@@ -2,15 +2,22 @@
 
 module ArrayHelper
 
+  # This function return a pretty good string. Like join but with an array
   # You can use an array as separator : [",", " "] will successively ',' and ' '
-  def to_clean_s_with_array sep
+  # Exemple : ["a", "b", "c"].joini(["x", "y"]) => "axbyc"
+  # == Params
+  #     sep: (Array) array of separator
+  # == Returns
+  #     str: (String) string joined
+  def joini sep
+    raise ArgumentError, 'Argument is not an array' unless sep.is_a? Array
     str = String.new
     i = 0
     self.each do |e|
       str = str + e.to_s + sep[i % sep.size].to_s
       i += 1
     end
-    return str[0..(-sep.size - 1)]
+    return str[0..-2]
   end
 
   # Do the sum of an array of integer.
@@ -36,11 +43,15 @@ module ArrayHelper
   end
 
   # get the n higher values of the array
+  # == Params
+  #     n: (Integer) number of elements
   def maxs(n=1)
     return Array(self.sort[(-n)..(-1)])
   end
 
   # get the n lower values of the array
+  # == Params
+  #     n: (Integer) number of elements
   def mins(n=1)
     return Array(self.sort[0..(n-1)])
   end
