@@ -8,16 +8,15 @@ module StringHelper
   # == Params
   #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   #     replace: if a char is not utf8 valid, character will replace it
-  # Remove accents from the string. Change the case as first argument
+  # UTF-8 encoding and replace invalid chars, Remove accents from the string. Change the case as first argument
   def to_plain(case_mod = nil, replace= " ")
-    s = self.encode("UTF-8", :invalid=>:replace, :replace=>replace).tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-                                                                       "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
-    return s.to_case(case_mod)
+    return self.p.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').to_case(case_mod)
   end
 
-  #to_plain alias
-  def p(replace= " ")
-    return self.to_plain(nil, replace)
+  # Remove accents
+  def p()
+    return self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+                   "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
   end
   def p!(replace= " ")
     return self.replace(self.p(replace))
@@ -48,7 +47,7 @@ module StringHelper
   # return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
   def to_ascii(replace="", case_mod = nil)
     s = String.new
-    self.to_plain.each_char do |c|
+    self.p.each_char do |c|
       s += ((c.ord > 255) ? (replace.to_s) : (c))
     end
     return s.to_case(case_mod)
