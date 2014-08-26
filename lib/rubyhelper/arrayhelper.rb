@@ -46,6 +46,8 @@ module ArrayHelper
   # == Params
   #     n: (Integer) number of elements
   def maxs(n=1)
+    n = 1 if n < 1
+    n = self.size if n > self.size
     return Array(self.sort[(-n)..(-1)])
   end
 
