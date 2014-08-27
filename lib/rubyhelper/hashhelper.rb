@@ -15,4 +15,3 @@ end
 class Hash
   prepend HashHelper
 end
-

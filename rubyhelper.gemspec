@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
               	  "lib/rubyhelper/stringhelper.rb",
               	  "lib/rubyhelper/arrayhelper.rb",
               	  "lib/rubyhelper/timehelper.rb",
+              	  "lib/rubyhelper/hashhelper.rb",
 		  ]
   s.homepage    = "https://gitlab.com/Sopheny/rubyhelper"
   s.license     = "GNU/GPLv3"
