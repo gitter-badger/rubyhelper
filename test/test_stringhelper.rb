@@ -60,6 +60,14 @@ class StringHelperTest < Minitest::Test
     assert_equal("b", "bonjour".static(1, " ", :front))
     assert_equal("bon", "bonjour".static(3, " ", :front))
     assert_equal("   bonjour", "bonjour".static(10, " ", :front))
+    assert_equal("j", "bonjour".static(1, " ", :center))
+    assert_equal("jo", "bonjour".static(2, " ", :center))
+    assert_equal("njo", "bonjour".static(3, " ", :center))
+    assert_equal("njou", "bonjour".static(4, " ", :center))
+    assert_equal("bonjour ", "bonjour".static(8, " ", :center))
+    assert_equal(" bonjour ", "bonjour".static(9, " ", :center))
+    assert_equal(" bonjour  ", "bonjour".static(10, " ", :center))
+    assert_equal("  bonjour  ", "bonjour".static(11, " ", :center))
   end
 
   def test_get_int
