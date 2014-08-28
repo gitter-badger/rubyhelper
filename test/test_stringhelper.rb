@@ -54,8 +54,12 @@ class StringHelperTest < Minitest::Test
   end
 
   def test_static
-    assert_equal("bonjour".static(1, " "), "b")
-    assert_equal("bonjour".static(10, " "), "bonjour   ")
+    assert_equal("r", "bonjour".static(1, " "))
+    assert_equal("our", "bonjour".static(3, " "))
+    assert_equal("bonjour   ", "bonjour".static(10, " "))
+    assert_equal("b", "bonjour".static(1, " ", :front))
+    assert_equal("bon", "bonjour".static(3, " ", :front))
+    assert_equal("   bonjour", "bonjour".static(10, " ", :front))
   end
 
   def test_get_int

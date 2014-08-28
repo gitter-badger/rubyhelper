@@ -87,12 +87,16 @@ module StringHelper
   # ==Param
   #     n: number of char
   #     char: char to replace if the initial str is too short
-  # Get a str with a static length
-  def static(n, char=' ')
+  #     place: :begin/:front :end/:back
+  # Get a str with a static length.
+  # If the str size > n, reduce the str (keep from place)
+  def static(n, char=' ', place= :back)
     if self.size < n
-      return self + char * (n - self.size).to_i
+      return char.to_s * (n - self.size).to_i + self if place == :begin or place == :front
+      return self + char.to_s * (n - self.size).to_i
     else
-      return self[0...n]
+      return self[0...n] if place == :begin or place == :front
+      return self[(-n)..-1]
     end
   end
   def static!(n, char=' ')
