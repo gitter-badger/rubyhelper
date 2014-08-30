@@ -8,13 +8,13 @@ helpers about the basic classes, String, Array, ... to make your work easier.
 I hope too help you with this gem.
   
 ## My favorites functions from this gem
-- String.new.static(n) => String
+- String.new.static(n) => String  
 	Render a cool string with a static size. Few cool options tested and validated
-- String.new.get_float => String
+- String.new.get_float => String  
 	Usefull to extract a Numerical value from a stupid String
-- Array.new.average /averagef
+- Array.new.average /averagef  
 	Simple and usefull integer/float average
-- Array.new.sumf / sum
+- Array.new.sumf / sum  
 	Simple and usefull float/integer sum
   
 ## Notes about the source code
