@@ -5,21 +5,21 @@ require 'digest'
 
 module StringHelper
 
+  # UTF-8 encoding and replace invalid chars, Remove accents from the string. Change the case as first argument if not nil
   # == Params
   #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   #     replace: if a char is not utf8 valid, character will replace it
-  # UTF-8 encoding and replace invalid chars, Remove accents from the string. Change the case as first argument
   def to_plain(case_mod = nil, replace= " ")
     return self.p.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').to_case(case_mod)
   end
 
-  # Remove accents
-  def p()
+  # Remove accents from the string, and replace it by the same letter in ASCII
+  def p
     return self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
                    "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
   end
-  def p!(replace= " ")
-    return self.replace(self.p(replace))
+  def p!
+    return self.replace(self.p)
   end
 
   # == Params
