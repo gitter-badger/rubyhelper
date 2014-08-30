@@ -10,16 +10,28 @@ class StringHelperTest < Minitest::Test
     assert_equal("bonjo\\AAAur".to_plain, "bonjo\\AAAur")
   end
 
-  def test_to_case
-    assert_equal("bonjour".to_case(:downcase), "bonjour")
-    assert_equal("bonJour".to_case(:upcase), "BONJOUR")
-    assert_equal("bonJour".to_case(:capitalize), "Bonjour")
+  def test_p
+    assert_equal("bonjour".p, "bonjour")
+    assert_equal("bonjouré".p, "bonjoure")
+    assert_equal("bonjo\\AAAur".p, "bonjo\\AAAur")
+  end
+
+  def test_p!
+    assert_equal("bonjour".p!, "bonjour")
+    assert_equal("bonjouré".p!, "bonjoure")
+    assert_equal("bonjo\\AAAur".p!, "bonjo\\AAAur")
   end
 
   def test_to_case
     assert_equal("bonjour".to_case(:downcase), "bonjour")
     assert_equal("bonJour".to_case(:upcase), "BONJOUR")
     assert_equal("bonJour".to_case(:capitalize), "Bonjour")
+  end
+
+  def test_to_case!
+    assert_equal("bonjour".to_case!(:downcase), "bonjour")
+    assert_equal("bonJour".to_case!(:upcase), "BONJOUR")
+    assert_equal("bonJour".to_case!(:capitalize), "Bonjour")
   end
 
   def test_to_ascii
@@ -39,10 +51,10 @@ class StringHelperTest < Minitest::Test
     assert_equal(",1,1".to_f, 0.1)
   end
 
-  def test_to_i_wd
-    assert_equal("1 1".to_i_wd(), 11)
-    assert_equal("06.08.68".to_i_wd("."), 60868)
-    assert_equal("06.08.68".to_i_wd("\. \t\-"), 60868)
+  def test_to_ii
+    assert_equal("1 1".to_ii(), 11)
+    assert_equal("06.08.68".to_ii("."), 60868)
+    assert_equal("06.08.68".to_ii("\. \t\-"), 60868)
   end
 
   def test_to_t
@@ -80,6 +92,12 @@ class StringHelperTest < Minitest::Test
     assert_equal("13,12".get_float(), "13,12")
     assert_equal("ea -ze 13e.12 à nnazdaz d".get_float(), "-13.12")
     assert_equal("ea\n ze +13\n.12\n à nnazdaz\n\t\n\r d".get_float(), "+13.12")
+  end
+
+  def test_scapitalize
+    assert_equal("Bonjour Monsieur", "Bonjour Monsieur".scapitalize)
+    assert_equal("Bonjour M A D & A", "BONJOUR M A D & A".scapitalize)
+    assert_equal("1 And 1 Sontdesvoleurs", "1 and 1 sontdesvoleurs".scapitalize)
   end
 
 end

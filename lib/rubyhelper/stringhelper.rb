@@ -41,10 +41,11 @@ module StringHelper
     return self.replace(self.to_case(case_mod))
   end
 
+  # Return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
+  # Accents are removed first and replaced by the equivalent ASCII letter
   # == Params
   #     replace: a caracter to replace non-ascii chars
   #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
-  # return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
   def to_ascii(replace="", case_mod = nil)
     s = String.new
     self.p.each_char do |c|
@@ -62,12 +63,13 @@ module StringHelper
     return f
   end
 
-  #To_i with delimiter
-  def to_i_wd(char=' ')
+  # to_i with delimiter
+  # Example : "12.000.000".to_ii => 12000000
+  def to_ii(char=' ')
     self.delete(char.to_s).to_i
   end
 
-  #CRYXOR
+  #CRYXOR (one time pad dirt application)
   def ^(k)
     str = ""
     self.size.times do |i|
@@ -76,7 +78,7 @@ module StringHelper
     return str
   end
 
-  #SHA2
+  #SHA2 shortcuts
   def sha2
     Digest::SHA2.hexdigest(self)
   end
@@ -84,12 +86,13 @@ module StringHelper
     return self.replace(self.sha2)
   end
 
+  # Get a str with a static length.
+  # If the str size > n, reduce the str (keep str from the (param place) )
+  # You should check the test files for examples
   # ==Param
   #     n: number of char
   #     char: char to replace if the initial str is too short
   #     place: :begin/:front :end/:back :center/:middle
-  # Get a str with a static length.
-  # If the str size > n, reduce the str (keep str from the (param place) )
   def static(n, char=' ', place= :back)
     char = char.to_s
     n = n.to_i
@@ -117,7 +120,7 @@ module StringHelper
     return self.replace(self.static(n, char))
   end
 
-  #Returns true or false if the string if "true" or "false"
+  #Returns true or false if the string if "true" or "false". else nil
   def to_t
     case self
     when "true"
@@ -130,19 +133,25 @@ module StringHelper
   end
 
   #get only the digits and symbols in the string
-  def get_int
-    return self.gsub(/[^\d\-\+]/, "")
+  # == Params
+  #     sign: (true/false) if true, keep the - and + signs
+  def get_int(sign = true)
+    return self.gsub(/[^\-\+\d]/, "") if sign == true
+    return self.gsub(/[^\d]/, "")
   end
-  def get_int!
-    return self.replace(self.get_int)
+  def get_int!(sign = true)
+    return self.replace(self.get_int(sign))
   end
 
   #as get_int but with . and ,
-  def get_float
-    return self.gsub(/[^\d\.\,\-\+]/, "")
+  # == Params
+  #     sign: (true/false) if true, keep the - and + signs
+  def get_float(sign = true)
+    return self.gsub(/[^\-\+\d\.\,]/, "") if sign == true
+    return self.gsub(/[^\d\.\,]/, "") if sign == true
   end
-  def get_float!
-    return self.replace(self.get_float)
+  def get_float!(sign = true)
+    return self.replace(self.get_float(sign))
   end
 
   # Capitalize a sequence
