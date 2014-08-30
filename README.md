@@ -25,3 +25,9 @@ The following sources code is not only my stuff, but also an implementation of i
 ```ruby
 	h.delete_if{|k| [:a].include? k}
 ```
+
+# Contributors
+- poulet_a : Creator and main developper. Feel free to ask me a question by email.  
+	email   : arthur.poulet AT cryptolab.net  
+	OpenPGP : 0x6D9EA34A  
+
