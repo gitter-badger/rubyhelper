@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.files       = [
                	  "lib/rubyhelper.rb",
               	  "lib/rubyhelper/integerhelper.rb",
+            	  "lib/rubyhelper/numerichelper.rb",
               	  "lib/rubyhelper/stringhelper.rb",
               	  "lib/rubyhelper/arrayhelper.rb",
               	  "lib/rubyhelper/timehelper.rb",
