@@ -96,8 +96,8 @@ module StringHelper
   # == Errors
   #     ArgumentError : if n in not an integer/char a String
   def static(n, char=' ', place= :back)
-    raise ArgumentError, 'char is not an String of 1 char' unless sep.is_a? String and sep[0] != nil
-    raise ArgumentError, 'n is not an Integer' unless sep.is_a? Integer
+    raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String and char[0] != nil
+    raise ArgumentError, 'n is not an Integer' unless n.is_a? Integer
     char = char[0] # get onlu tje first char
     if size < n
       case place
