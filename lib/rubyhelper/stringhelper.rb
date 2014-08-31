@@ -89,13 +89,16 @@ module StringHelper
   # Get a str with a static length.
   # If the str size > n, reduce the str (keep str from the (param place) )
   # You should check the test files for examples
-  # ==Param
+  # == Params
   #     n: number of char
   #     char: char to replace if the initial str is too short
   #     place: :begin/:front :end/:back :center/:middle
+  # == Errors
+  #     ArgumentError : if n in not an integer/char a String
   def static(n, char=' ', place= :back)
-    char = char.to_s
-    n = n.to_i
+    raise ArgumentError, 'char is not an String of 1 char' unless sep.is_a? String and sep[0] != nil
+    raise ArgumentError, 'n is not an Integer' unless sep.is_a? Integer
+    char = char[0] # get onlu tje first char
     if size < n
       case place
       when :begin, :front
