@@ -2,12 +2,12 @@
 #encoding: utf-8
 
 module NumericHelper
-  
+
   # get - or + function of the sign of the integer
   def sign
     return (self < 0) ? ("-") : ("+")
   end
-  
+
   # Errors
   #	ArgumentError : if the passed value is not an integer
   # Returns
@@ -19,7 +19,7 @@ module NumericHelper
   def min!(minimum_value)
     return self.replace(self.min(minimum_value))
   end
-  
+
   # Errors
   #	ArgumentError : if the passed value is not an integer
   # Returns
@@ -31,7 +31,7 @@ module NumericHelper
   def max!(maximum_value)
     return self.replace(self.min(maximum_value))
   end
-  
+
 end
 
 class Numeric
