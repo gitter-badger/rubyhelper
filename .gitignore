@@ -17,3 +17,5 @@
 *~
 *.gem
 /nbproject/
+
+.kate*
