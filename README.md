@@ -2,6 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)
 
+You can see the documentation here : https://www.omniref.com/ruby/gems/rubyhelper
 
 ## Wtf ?
 This gem is my own creation. It is a compilation of shortcuts, improvement,
