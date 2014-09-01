@@ -32,6 +32,7 @@ The following sources code is not only my stuff, but also an implementation of i
 	```  
 - Improve documentation
 - Prepare the v1.0
+- Improve VersionHelper tests
 
 # Contributors
 - poulet_a : Creator and main developper. Feel free to ask me a question by email.  

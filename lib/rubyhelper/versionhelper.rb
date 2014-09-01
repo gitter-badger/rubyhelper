@@ -8,19 +8,31 @@ module VersionHelper
 
     attr_accessor :v
 
+    # == Params:
+    #	arg : list of arguments
+    #		Integer : 1234 => 1.2.3.4
+    #		String : "1.2-3" => 1.2.3
+    #		Array : like multiple arguments
+    #		multiple : each argument is converted to a number
+    #			1,2,3 => 1.2.3
     def initialize(*arg)
       @v = []
       if arg.size == 1
         v = arg.first
         case v.class.to_s
         when 'String'
-          v.gsub!(/\D/, '.')
           v.gsub!(/\A\D/, '')
+          v.gsub!(/\D/, '.')
           @v = v.split('.').map{|e| e.to_i}
         when 'Array'
           @v = v.map{|e| e.to_i}
         when 'Fixnum'
-          @v << v.to_i
+          v = v.to_i
+          loop do
+            break if v == 0
+            @v << (v % 10)
+            v /= 10
+          end
         else
           raise ArgumentError, v.class.to_s
         end
@@ -54,11 +66,13 @@ module VersionHelper
       return Version.to_i(self)
     end
 
+    #Return an array with each number of the version
     def self.to_a(version)
       raise ArgumentError unless version.is_a? Version
       return version.v.dup
     end
-
+    
+    #Return an string with each number of the version, joined by '.'
     def self.to_s(version)
       raise ArgumentError unless version.is_a? Version
       return version.v.join('.')
@@ -69,7 +83,8 @@ module VersionHelper
       raise ArgumentError unless version.is_a? Version
       return nil
     end
-
+    
+    #Return an integer with each number of the version
     def self.to_i(version)
       raise ArgumentError unless version.is_a? Version
       i = 0

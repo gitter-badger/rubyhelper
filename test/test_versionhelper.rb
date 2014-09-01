@@ -5,8 +5,9 @@ class VersionHelperTest < Minitest::Test
 
   def test_new
     v1 = VersionHelper::Version.new 1
-    v2 = VersionHelper::Version.new 1,2
-    v3 = VersionHelper::Version.new 1,2,3
+    v2 = VersionHelper::Version.new [1,2]
+    v3 = VersionHelper::Version.new "v1,2.3"
+    v4 = VersionHelper::Version.new 123
   end
 
   def test_incr!
