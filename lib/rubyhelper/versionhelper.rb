@@ -30,6 +30,14 @@ module VersionHelper
       end
     end
 
+    def incr!(n=-1)
+      @v[n] = @v[n] += 1
+    end
+
+    def decr!(n=-1)
+      @v[n] = @v[n] -= 1
+    end
+
     def to_a
       return Version.to_a(self)
     end
