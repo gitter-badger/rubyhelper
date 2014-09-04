@@ -1,6 +1,7 @@
 # rubyhelper
 
-[![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)
+Gem [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)
+Dev [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)
 
 You can see the documentation here : https://www.omniref.com/ruby/gems/rubyhelper
 
