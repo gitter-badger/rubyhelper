@@ -1,8 +1,9 @@
+#encoding: utf-8
 require 'minitest/autorun'
-require 'rubyhelper'
+require_relative '../lib/rubyhelper'
 
 class NumericHelperTest < Minitest::Test
-  
+
   def test_min
     assert_equal(2, 1.min(2))
     assert_equal(1, 1.min(1))

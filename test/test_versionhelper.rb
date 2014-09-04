@@ -1,5 +1,6 @@
+#encoding: utf-8
 require 'minitest/autorun'
-require 'rubyhelper'
+require_relative '../lib/rubyhelper'
 
 class VersionHelperTest < Minitest::Test
 
