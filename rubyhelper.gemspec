@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
   s.version     = RubyHelper::VERSION
   s.date        = Time.now.getgm.to_s.split.first
-  s.summary     = "add tests and readme to gemspec"
+  s.summary     = "cert"
   s.description = "A list of utils for the basic Class of ruby."
   s.authors     = [
             	  "poulet_a"
@@ -31,4 +31,6 @@ Gem::Specification.new do |s|
 		  ]
   s.homepage    = "https://gitlab.com/Sopheny/rubyhelper"
   s.license     = "GNU/GPLv3"
+  s.cert_chain  = ['certs/poulet_a.pem']
+  s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
 end
