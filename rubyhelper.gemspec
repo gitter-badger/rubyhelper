@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
 		  "test/test_hash.rb",
 		  "test/test_numeric.rb",
 		  "test/test_string.rb",
-		  "test/test_version.rb",
+		  "test/test_versionhelper.rb",
 		  ]
   s.homepage    = "https://gitlab.com/Sopheny/rubyhelper"
   s.license     = "GNU/GPLv3"
