@@ -5,26 +5,41 @@ require 'digest'
 
 module StringHelper
 
+  # == Params:
+  #     - replace: (String) replace invalids chars by other chas
+  def utf8 replace=''
+    return self.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: replace)
+  end
+  def utf8!
+    return self.replace(self.utf8)
+  end
+
   # UTF-8 encoding and replace invalid chars, Remove accents from the string. Change the case as first argument if not nil
-  # == Params
-  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
-  #     replace: if a char is not utf8 valid, character will replace it
-  def to_plain(case_mod = nil, replace= " ")
-    return self.p.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '').to_case(case_mod)
+  # == Params:
+  #     - case_mod: nil (not changement), :upcase, :capitalize or :downcase
+  #     - replace: (String) if a char is not utf8 valid, character will replace it
+  def to_plain(case_mod = nil, replace='')
+    return self.p(replace).utf8(replace).to_case(case_mod)
   end
 
   # Remove accents from the string, and replace it by the same letter in ASCII
-  def p
-    return self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-                   "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+  # == Params:
+  #     - replace: (String) replace by character default case
+  def p(replace='')
+    begin
+      return self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+                     "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+    rescue Encoding::CompatibilityError => e
+      return self.utf8(replace)
+    end
   end
   def p!
     return self.replace(self.p)
   end
 
-  # == Params
-  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
   # permit to do upcase/downcase/capitalize easier with a simple param
+  # == Params:
+  #     - case_mod: nil (not changement), :upcase, :capitalize or :downcase
   def to_case(case_mod = :downcase)
     case case_mod
     when :upcase
@@ -43,9 +58,9 @@ module StringHelper
 
   # Return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
   # Accents are removed first and replaced by the equivalent ASCII letter
-  # == Params
-  #     replace: a caracter to replace non-ascii chars
-  #     case_mod: nil (not changement), :upcase, :capitalize or :downcase
+  # == Params:
+  #     - replace: a caracter to replace non-ascii chars
+  #     - case_mod: nil (not changement), :upcase, :capitalize or :downcase
   def to_ascii(replace="", case_mod = nil)
     s = String.new
     self.p.each_char do |c|
@@ -89,12 +104,12 @@ module StringHelper
   # Get a str with a static length.
   # If the str size > n, reduce the str (keep str from the (param place) )
   # You should check the test files for examples
-  # == Params
-  #     n: number of char
-  #     char: char to replace if the initial str is too short
-  #     place: :begin/:front :end/:back :center/:middle
-  # == Errors
-  #     ArgumentError : if n in not an integer/char a String
+  # == Params:
+  #     - n: number of char
+  #     - char: char to replace if the initial str is too short
+  #     - place: :begin/:front :end/:back :center/:middle
+  # == Errors:
+  #     - ArgumentError : if n in not an integer/char a String
   def static(n, char=' ', place= :back)
     raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String
     raise ArgumentError, 'n is not an Integer' unless n.is_a? Integer
@@ -136,8 +151,8 @@ module StringHelper
   end
 
   #get only the digits and symbols in the string
-  # == Params
-  #     sign: (true/false) if true, keep the - and + signs
+  # == Params:
+  #     - sign: (true/false) if true, keep the - and + signs
   def get_int(sign = true)
     return self.gsub(/[^\-\+\d]/, "") if sign == true
     return self.gsub(/[^\d]/, "")
@@ -147,8 +162,8 @@ module StringHelper
   end
 
   #as get_int but with . and ,
-  # == Params
-  #     sign: (true/false) if true, keep the - and + signs
+  # == Params:
+  #     - sign: (true/false) if true, keep the - and + signs
   def get_float(sign = true)
     return self.gsub(/[^\-\+\d\.\,]/, "") if sign == true
     return self.gsub(/[^\d\.\,]/, "") if sign == true

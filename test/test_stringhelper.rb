@@ -8,30 +8,20 @@ class StringHelperTest < Minitest::Test
     assert_equal("bonjour".to_plain, "bonjour")
     assert_equal("bonjouré".to_plain, "bonjoure")
     assert_equal("bonjo\\AAAur".to_plain, "bonjo\\AAAur")
+    assert_equal("bonjo€".to_plain, "bonjo")
   end
 
   def test_p
     assert_equal("bonjour".p, "bonjour")
     assert_equal("bonjouré".p, "bonjoure")
     assert_equal("bonjo\\AAAur".p, "bonjo\\AAAur")
-  end
-
-  def test_p!
-    assert_equal("bonjour".p!, "bonjour")
-    assert_equal("bonjouré".p!, "bonjoure")
-    assert_equal("bonjo\\AAAur".p!, "bonjo\\AAAur")
+    assert_equal("bonjo€".p, "bonjo€")
   end
 
   def test_to_case
     assert_equal("bonjour".to_case(:downcase), "bonjour")
     assert_equal("bonJour".to_case(:upcase), "BONJOUR")
     assert_equal("bonJour".to_case(:capitalize), "Bonjour")
-  end
-
-  def test_to_case!
-    assert_equal("bonjour".to_case!(:downcase), "bonjour")
-    assert_equal("bonJour".to_case!(:upcase), "BONJOUR")
-    assert_equal("bonJour".to_case!(:capitalize), "Bonjour")
   end
 
   def test_to_ascii
