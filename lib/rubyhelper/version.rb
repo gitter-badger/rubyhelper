@@ -1,4 +1,4 @@
 module RubyHelper
-  VERSION = "1.0.alpha3"
+  VERSION = "1.0.alpha4"
   #LAST_VERSION = `gem list rubyhelper`.split(",").first.gsub(/[^\d\.]/, "")
 end
