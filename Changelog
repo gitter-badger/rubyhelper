@@ -1,9 +1,9 @@
 - v1.1.1
-	Add lot of documentation
-	ArrayHelper#mins and #maxs can raise ArgumentError s
-	Improve Array#compacti
-	Add StringHelper#to_plain!
-	Fix StringHelper#p! arguments
-	Replace StringHelper#to_f with #to_fi
-	StringHelper#to_ii can raise ArgumentError
-	Fix tests
+	- Add lot of documentation
+	- ArrayHelper#mins and #maxs can raise ArgumentError s
+	- Improve Array#compacti
+	- Add StringHelper#to_plain!
+	- Fix StringHelper#p! arguments
+	- Replace StringHelper#to_f with #to_fi
+	- StringHelper#to_ii can raise ArgumentError
+	- Fix tests
