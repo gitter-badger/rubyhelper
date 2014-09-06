@@ -5,26 +5,42 @@ require 'digest'
 
 module StringHelper
 
+  # Force utf-8 encoding (shortcut ;) ! )
   # == Params:
   #     - replace: (String) replace invalids chars by other chas
+  # == Returns:
+  #     - self: (String) utf-8 string
   def utf8 replace=''
     return self.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: replace)
   end
+
+  # see #utf8
   def utf8!
     return self.replace(self.utf8)
   end
 
-  # UTF-8 encoding and replace invalid chars, Remove accents from the string. Change the case as first argument if not nil
+  # UTF-8 encoding and replace invalid chars.
+  # Remove accents from the string (convert to ASCII chars !)
+  # And then, change the case as first argument if not nil
   # == Params:
   #     - case_mod: nil (not changement), :upcase, :capitalize or :downcase
   #     - replace: (String) if a char is not utf8 valid, character will replace it
+  # == Returns:
+  #     - self: (String)
   def to_plain(case_mod = nil, replace='')
     return self.p(replace).utf8(replace).to_case(case_mod)
+  end
+
+  # see #to_plain
+  def to_plain!(case_mod = nil, replace='')
+    return self.replace(self.to_plain(case_mod, replace))
   end
 
   # Remove accents from the string, and replace it by the same letter in ASCII
   # == Params:
   #     - replace: (String) replace by character default case
+  # == Returns:
+  #     - self: (String)
   def p(replace='')
     begin
       return self.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
@@ -33,8 +49,10 @@ module StringHelper
       return self.utf8(replace)
     end
   end
-  def p!
-    return self.replace(self.p)
+
+  # see #p
+  def p!(replace='')
+    return self.replace(self.p(replace))
   end
 
   # permit to do upcase/downcase/capitalize easier with a simple param
@@ -52,6 +70,8 @@ module StringHelper
       return self
     end
   end
+
+  # see #to_case
   def to_case!(case_mod = :downcase)
     return self.replace(self.to_case(case_mod))
   end
@@ -61,6 +81,8 @@ module StringHelper
   # == Params:
   #     - replace: a caracter to replace non-ascii chars
   #     - case_mod: nil (not changement), :upcase, :capitalize or :downcase
+  # == Returns:
+  #     - self: (String)
   def to_ascii(replace="", case_mod = nil)
     s = String.new
     self.p.each_char do |c|
@@ -70,21 +92,28 @@ module StringHelper
   end
 
   # improvement of to_f to count "," caracter as "."
-  def to_f
-    s = self.dup
-    self.gsub!(',', '.')
-    f = super
-    self.replace(s)
-    return f
+  # == Params:
+  #       none
+  # == Returns:
+  #     - float: (Float)
+  def to_fi
+    return self.gsub(',', '.').to_f
   end
 
-  # to_i with delimiter
+  # to_i with delimiter to remove
   # Example : "12.000.000".to_ii => 12000000
+  # == Params:
+  #     - char: char to delete (default : ' ')
+  # == Returns:
+  #     - integer: (Integer)
+  # == Errors:
+  #     ArgumentError: If (param char) is not a String
   def to_ii(char=' ')
-    self.delete(char.to_s).to_i
+    raise ArgumentError, "Argument is not a String" unless char.is_a? String
+    self.delete(char).to_i
   end
 
-  #CRYXOR (one time pad dirt application)
+  # CRYXOR (one time pad dirt application)
   def ^(k)
     str = ""
     self.size.times do |i|
@@ -93,10 +122,13 @@ module StringHelper
     return str
   end
 
-  #SHA2 shortcuts
+  # SHA2 shortcuts
+  # see #Digest::SHA2.hexdigest
   def sha2
     Digest::SHA2.hexdigest(self)
   end
+
+  # see #sha2
   def sha2!
     return self.replace(self.sha2)
   end
@@ -139,6 +171,10 @@ module StringHelper
   end
 
   #Returns true or false if the string if "true" or "false". else nil
+  # == Params:
+  #       none
+  # == Returns:
+  #     - true/false
   def to_t
     case self
     when "true"
@@ -153,10 +189,14 @@ module StringHelper
   #get only the digits and symbols in the string
   # == Params:
   #     - sign: (true/false) if true, keep the - and + signs
+  # == Return:
+  #     epured_string: (String)
   def get_int(sign = true)
     return self.gsub(/[^\-\+\d]/, "") if sign == true
     return self.gsub(/[^\d]/, "")
   end
+
+  # see #get_int
   def get_int!(sign = true)
     return self.replace(self.get_int(sign))
   end
@@ -164,18 +204,28 @@ module StringHelper
   #as get_int but with . and ,
   # == Params:
   #     - sign: (true/false) if true, keep the - and + signs
+  # == Returns:
+  #     epured_string: (String)
   def get_float(sign = true)
     return self.gsub(/[^\-\+\d\.\,]/, "") if sign == true
     return self.gsub(/[^\d\.\,]/, "") if sign == true
   end
+
+  # see #get_float
   def get_float!(sign = true)
     return self.replace(self.get_float(sign))
   end
 
-  # Capitalize a sequence
+  # Capitalize a sequence (each word)
+  # == Params:
+  #       none
+  # == Returns:
+  #     capitalized_string: (String)
   def scapitalize
     return self.split.map(&:capitalize).join(' ')
   end
+
+  # see #scapitalize
   def scapitalize!
     return self.replace(self.scapitalize)
   end

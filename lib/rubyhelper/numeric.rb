@@ -4,10 +4,15 @@
 module NumericHelper
 
   # get - or + function of the sign of the integer
+  # == Params:
+  #     none
+  # == Returns:
+  #     none
   def sign
     return (self < 0) ? ("-") : ("+")
   end
 
+  # Get the self value or minimum_value if greater than self
   # == Errors:
   #	- ArgumentError : if the passed value is not an integer
   # == Returns:
@@ -20,6 +25,7 @@ module NumericHelper
     return self.replace(self.min(minimum_value))
   end
 
+  # Get the self value or maximum_value if lesser than self
   # == Errors:
   #	- ArgumentError : if the passed value is not an integer
   # == Returns:

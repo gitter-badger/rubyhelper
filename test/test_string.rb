@@ -32,13 +32,13 @@ class StringHelperTest < Minitest::Test
     assert_equal("bonjour€".to_ascii("."), "bonjour.")
   end
 
-  def test_to_f
-    assert_equal("bonjour".to_f, 0.0)
-    assert_equal("bonj1our".to_f, 0.0)
-    assert_equal("1.1.1".to_f, 1.1)
-    assert_equal("1.1".to_f, 1.1)
-    assert_equal("1,1".to_f, 1.1)
-    assert_equal(",1,1".to_f, 0.1)
+  def test_to_fi
+    assert_equal("bonjour".to_fi, 0.0)
+    assert_equal("bonj1our".to_fi, 0.0)
+    assert_equal("1.1.1".to_fi, 1.1)
+    assert_equal("1.1".to_fi, 1.1)
+    assert_equal("1,1".to_fi, 1.1)
+    assert_equal(",1,1".to_fi, 0.1)
   end
 
   def test_to_ii

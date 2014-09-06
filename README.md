@@ -3,7 +3,7 @@
 Gem [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)  
 Dev [![GitHub version](https://badge.fury.io/gh/pouleta%2Frubyhelper.svg)](http://badge.fury.io/gh/pouleta%2Frubyhelper)  
 
-You can see the documentation here : https://www.omniref.com/ruby/gems/rubyhelper
+You can see the documentation here : http://rubydoc.info/gems/rubyhelper/
 
 ## How is it works ?
 See the [wtf] section too know what is exactly this stuff.  

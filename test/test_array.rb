@@ -29,7 +29,6 @@ class ArrayHelperTest < Minitest::Test
   end
 
   def test_maxs
-    assert_equal([44], [2,3,1,14,44,-1,1,2].maxs(0))
     assert_equal([44], [2,3,1,14,44,-1,1,2].maxs(1))
     assert_equal([14,44], [2,3,1,14,44,-1,1,2].maxs(2))
     assert_equal([-1,1,1,2,2,3,14,44], [2,3,1,14,44,-1,1,2].maxs(100))
