@@ -40,14 +40,14 @@ The following sources code is not only my stuff, but also an implementation of
 idea found on stackoverflow, ...  
 
 The developpement running like that :
-1. Found idea
-2. Put it in the gem
-3. Developpe few tests
-4. Push it in a unstable gem (like v1.0.alpha1)
-5. **repeat 1-4 actions few times**
-6. Improve tests
-7. Validate the version
-8. Push new "stable" version (like v1.1)
+- 1. Found idea
+- 2. Put it in the gem
+- 3. Developpe few tests
+- 4. Push it in a unstable gem (like v1.0.alpha1)
+- 5. **repeat 1-4 actions few times**
+- 6. Improve tests
+- 7. Validate the version
+- 8. Push new "stable" version (like v1.1)
 
 Note about the first time developpement :  
 I didn't predict to keep this gem in dev so the first part of the dev
