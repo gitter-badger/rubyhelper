@@ -47,7 +47,8 @@ The developpement running like that :
 5. **repeat 1-4 actions few times**  
 6. Improve tests  
 7. Validate the version  
-8. Push new "stable" version (like v1.1)  
+8. Push the version into master branch and tag it  
+9. Push new "stable" version (like v1.1)  
 
 Note about the first time developpement :  
 I didn't predict to keep this gem in dev so the first part of the dev
