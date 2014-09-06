@@ -55,15 +55,21 @@ is a little messy. Don't look back 1.1 ;)
 
 
 # TODO
-- Benchmark Hash.except with  
+## Benchmark
+- Hash.except with  
 	```
 		h.delete_if{|k| [:a].include? k}
 	```  
-- Improve documentation
-- Prepare the v1.0
-- Improve VersionHelper tests
+
+## Improve VersionHelper
+- Add test
+- Add more documentation
+
+## Improve main tests
+- Add few tests for untested features
+- Improve existing tests (mainly on StringHelper)
 
 # Contributors
 - poulet_a : Creator and main developper. Feel free to ask me a question by email.  
-	email   : arthur.poulet AT cryptolab.net  
-	OpenPGP : 0x6D9EA34A  
+	email   : arthur.poulet AT cryptolab.net [OpenPGP : 0x6D9EA34A]  
+
