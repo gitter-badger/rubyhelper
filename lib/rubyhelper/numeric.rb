@@ -8,10 +8,10 @@ module NumericHelper
     return (self < 0) ? ("-") : ("+")
   end
 
-  # Errors
-  #	ArgumentError : if the passed value is not an integer
-  # Returns
-  #	value: (Numeric) self if self >= min else min
+  # == Errors:
+  #	- ArgumentError : if the passed value is not an integer
+  # == Returns:
+  #	- value: (Numeric) self if self >= min else min
   def min(minimum_value)
     raise ArgumentError unless minimum_value.is_a? Numeric
     return self >= minimum_value ? self : minimum_value
@@ -20,10 +20,10 @@ module NumericHelper
     return self.replace(self.min(minimum_value))
   end
 
-  # Errors
-  #	ArgumentError : if the passed value is not an integer
-  # Returns
-  #	value: (Numeric) self if self <= max else max
+  # == Errors:
+  #	- ArgumentError : if the passed value is not an integer
+  # == Returns:
+  #	- value: (Numeric) self if self <= max else max
   def max(maximum_value)
     raise ArgumentError unless maximum_value.is_a? Numeric
     return self <= maximum_value ? self : maximum_value

@@ -5,12 +5,12 @@ module ArrayHelper
   # This function return a pretty good string. Like join but with an array
   # You can use an array as separator : [",", " "] will successively ',' and ' '
   # Exemple : ["a", "b", "c"].joini(["x", "y"]) => "axbyc"
-  # == Errors
-  #     ArgumentError : if sep in not an array
-  # == Params
-  #     sep: (Array) array of separator
-  # == Returns
-  #     str: (String) string joined
+  # == Errors:
+  #     - ArgumentError : if sep in not an array
+  # == Params:
+  #     - sep: (Array) array of separator
+  # == Returns:
+  #     - str: (String) string joined
   def joini sep
     raise ArgumentError, 'Argument is not an array' unless sep.is_a? Array
     str = String.new
@@ -45,10 +45,10 @@ module ArrayHelper
   end
 
   # get the n higher values of the array
-  # == Errors
-  #     ArgumentError : if n in not an integer
-  # == Params
-  #     n: (Integer) number of elements
+  # == Errors:
+  #     - ArgumentError : if n in not an integer
+  # == Params:
+  #     - n: (Integer) number of elements
   def maxs(n=1)
     raise ArgumentError, 'Argument is not an integer' unless n.is_a? Integer
     n = 1 if n < 1
@@ -57,10 +57,10 @@ module ArrayHelper
   end
 
   # get the n lower values of the array
-  # == Errors
-  #     ArgumentError : if n in not an integer
-  # == Params
-  #     n: (Integer) number of elements
+  # == Errors:
+  #     - ArgumentError : if n in not an integer
+  # == Params:
+  #     - n: (Integer) number of elements
   def mins(n=1)
     raise ArgumentError, 'Argument is not an integer' unless n.is_a? Integer
     n = 1 if n < 1

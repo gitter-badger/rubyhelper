@@ -1,4 +1,5 @@
 module HashHelper
+
   # Return a hash that includes everything but the given keys.
   def except(*keys)
     return self.dup.except!(*keys)

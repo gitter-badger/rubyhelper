@@ -9,7 +9,7 @@ module VersionHelper
     attr_accessor :v
 
     # == Params:
-    #	arg : list of arguments
+    #	- arg : list of arguments
     #		Integer : 1234 => 1.2.3.4
     #		String : "1.2-3" => 1.2.3
     #		Array : like multiple arguments
@@ -58,6 +58,7 @@ module VersionHelper
       return Version.to_s(self)
     end
 
+    # Not work yet
     def to_h
       return Version.to_h(self)
     end
@@ -71,19 +72,19 @@ module VersionHelper
       raise ArgumentError unless version.is_a? Version
       return version.v.dup
     end
-    
+
     #Return an string with each number of the version, joined by '.'
     def self.to_s(version)
       raise ArgumentError unless version.is_a? Version
       return version.v.join('.')
     end
 
-    #Not work
+    #Not work yet
     def self.to_h(version)
       raise ArgumentError unless version.is_a? Version
       return nil
     end
-    
+
     #Return an integer with each number of the version
     def self.to_i(version)
       raise ArgumentError unless version.is_a? Version
