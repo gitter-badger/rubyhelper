@@ -8,13 +8,12 @@ module VersionHelper
 
     attr_accessor :v
 
-    # == Params:
-    #	- arg : list of arguments
-    #		Integer : 1234 => 1.2.3.4
-    #		String : "1.2-3" => 1.2.3
-    #		Array : like multiple arguments
-    #		multiple : each argument is converted to a number
-    #			1,2,3 => 1.2.3
+    # [Integer] : 1234 => 1.2.3.4
+    # [String] : "1.2-3" => 1.2.3
+    # [Array] : like multiple arguments
+    # [multiple] : each argument is converted to a number 1,2,3 => 1.2.3
+    #
+    # @param arg : list of arguments
     def initialize(*arg)
       @v = []
       if arg.size == 1

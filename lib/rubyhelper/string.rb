@@ -14,6 +14,8 @@ module StringHelper
   end
 
   # see {#utf8}
+  #
+  # @return [String]
   def utf8!
     return self.replace(self.utf8)
   end
@@ -30,6 +32,8 @@ module StringHelper
   end
 
   # see {#to_plain}
+  #
+  # @return [String]
   def to_plain!(case_mod = nil, replace='')
     return self.replace(self.to_plain(case_mod, replace))
   end
@@ -48,6 +52,8 @@ module StringHelper
   end
 
   # see {#p}
+  #
+  # @return [String]
   def p!(replace='')
     return self.replace(self.p(replace))
   end
@@ -70,6 +76,8 @@ module StringHelper
   end
 
   # see {#to_case}
+  #
+  # @return [String]
   def to_case!(case_mod = :downcase)
     return self.replace(self.to_case(case_mod))
   end
@@ -107,6 +115,8 @@ module StringHelper
   end
 
   # CRYXOR (one time pad dirt application)
+  #
+  # @return [String]
   def ^(k)
     str = ""
     self.size.times do |i|
@@ -117,11 +127,15 @@ module StringHelper
 
   # SHA2 shortcuts
   # see {Digest::SHA2#hexdigest}
+  #
+  # @return [String]
   def sha2
     Digest::SHA2.hexdigest(self)
   end
 
   # see {#sha2}
+  #
+  # @return [String]
   def sha2!
     return self.replace(self.sha2)
   end
@@ -134,6 +148,7 @@ module StringHelper
   # @param char [String] char to replace if the initial str is too short
   # @param place [Symbol] :begin/:front :end/:back :center/:middle
   # @raise [ArgumentError] if n in not an integer/char a String
+  # @return [String]
   def static(n, char=' ', place= :back)
     raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String
     raise ArgumentError, 'n is not an Integer' unless n.is_a? Integer
@@ -164,7 +179,8 @@ module StringHelper
 
   # Returns true or false if the string if "true" or "false". else nil
   #
-  # @return true/false
+  # @return [TrueClass]
+  # @return [FalseClass]
   def to_t
     case self
     when "true"
@@ -186,6 +202,8 @@ module StringHelper
   end
 
   # see #get_int
+  #
+  # @return [String]
   def get_int!(sign = true)
     return self.replace(self.get_int(sign))
   end
@@ -200,6 +218,8 @@ module StringHelper
   end
 
   # see {#get_float}
+  #
+  # @return [String]
   def get_float!(sign = true)
     return self.replace(self.get_float(sign))
   end
@@ -212,6 +232,8 @@ module StringHelper
   end
 
   # see {#scapitalize}
+  #
+  # @return [String]
   def scapitalize!
     return self.replace(self.scapitalize)
   end

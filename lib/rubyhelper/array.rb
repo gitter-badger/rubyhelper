@@ -84,6 +84,8 @@ module ArrayHelper
   end
 
   # see {#compacti}
+  #
+  # @return [Array]
   def compacti!
     return self.replace(self.compacti)
   end
