@@ -201,7 +201,7 @@ module StringHelper
     return self.gsub(/[^\d]/, "")
   end
 
-  # see #get_int
+  # see {#get_int}
   #
   # @return [String]
   def get_int!(sign = true)
