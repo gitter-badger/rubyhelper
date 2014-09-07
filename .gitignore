@@ -19,3 +19,6 @@
 /nbproject/
 
 .kate*
+
+doc/
+.yard*
