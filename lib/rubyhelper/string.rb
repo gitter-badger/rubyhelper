@@ -39,6 +39,7 @@ module StringHelper
   end
 
   # Remove accents from the string, and replace it by the same letter in ASCII
+  # Note : it doesn't remove non ASCII characters
   #
   # @param replace [String] replace by character default case
   # @return [String] self cahnged
@@ -83,7 +84,7 @@ module StringHelper
   end
 
   # Return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
-  # Accents are removed first and replaced by the equivalent ASCII letter
+  # Accents are removed first and replaced by the equivalent ASCII letter (example : 'é' => 'e')
   #
   # @param replace [String] a caracter to replace non-ascii chars
   # @param case_mod [Symbol] :upcase, :capitalize or :downcase or nil if no case change
