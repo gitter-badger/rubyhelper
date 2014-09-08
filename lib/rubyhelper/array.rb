@@ -23,8 +23,12 @@ module ArrayHelper
   # Do the sum of an array of integer.
   # if there is not integer, it will do a to_s.to_i of the element to try
   # find an integer in the element. else, replace by a simple 0
+  # If the argument toadd is no nill, then the self.size firsts elements
+  # will be added to self and returned
+  # examples: [1,2,3].sum([1,1]) => [2,3,3]
+  # examples: [1,2].sum([1,1,1]) => [2,3]
   #
-  # @param toadd [Array] if not nil, the array will be added like : [1,2,3].sum([1,1]) => [2,3,3]
+  # @param toadd [Array] if not nil, the array will be added
   # @return [Integer] the sum of each element (converted via .to_s.to_i)
   # @return [Array] an array wich contain the sum of a1[i] + a2[i]
   def sum(toadd=nil)
@@ -33,7 +37,7 @@ module ArrayHelper
     return self.zip(toadd).map{|pair| pair.map{|e| e.to_s.to_i}.reduce(&:+) }
   end
 
-  # lke sum by with a to_f instead of to_i
+  # like {#sum} by with a to_f instead of to_i
   #
   # @return [Float] the sum of each element (converted via .to_s.to_f)
   # @return [Array] an array wich contain the sum of a1[i] + a2[i]
@@ -43,14 +47,14 @@ module ArrayHelper
     return self.zip(toadd).map{|pair| pair.map{|e| e.to_s.to_f}.reduce(&:+) }
   end
 
-  # Use the sum and divide by the size of the array.
+  # Use the {#sum} and divide by the size of the array.
   #
   # @return [Integer] self.sum / self.size. 0 if no elements
   def average
     return (self.size > 0) ? (self.sum / self.size) : (0)
   end
 
-  # Same than average but use to_f instead of to_i
+  # Same than {#average} but use to_f instead of to_i
   #
   # @return [Float] self.sumf / self.size. 0.0 if no elements
   def averagef
