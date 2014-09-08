@@ -3,6 +3,8 @@ v1.2:
 	- Improve, complete and fix documentation and tests
 	- Add String#true? and String#false? methods
 	- Improve @raises from Arguments of the StringHelper methods
+	- Improve Array#sum and #sumf methods to add other arrays
+	- Hotfix to remove the pry requierement
 
 v1.1.1:
 	- Add lot of documentation

@@ -4,7 +4,7 @@ Gem [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.
 Git [![GitHub version](https://badge.fury.io/gh/pouleta%2Frubyhelper.svg)](http://badge.fury.io/gh/pouleta%2Frubyhelper)  
 
 Last release	v1.1.2
-Last dev	v1.2-alpha2
+Last dev	v1.2-alpha3
 
 You can see the documentation here : http://rubydoc.info/gems/rubyhelper/
 
