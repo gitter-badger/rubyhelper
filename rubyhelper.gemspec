@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
   s.version     = RubyHelper::VERSION
   s.date        = Time.now.getgm.to_s.split.first
-  s.summary     = "First real release :) 1.1 with fix doc, fix tests, certification, ..."
+  s.summary     = ""
   s.description = "A list of utils for the basic Class of ruby."
   s.authors     = [
             	  "poulet_a"
