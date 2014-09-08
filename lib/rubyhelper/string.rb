@@ -161,10 +161,10 @@ module StringHelper
   # You should check the test files for examples
   # Note : {#center} {#left} and {#right} do a similar work.
   #
+  # @raise [ArgumentError] if n in not an integer/char a String
   # @param n [Integer] number of char
   # @param char [String] char to replace if the initial str is too short
   # @param place [Symbol] :begin/:front :end/:back :center/:middle
-  # @raise [ArgumentError] if n in not an integer/char a String
   # @return [String]
   def static(n, char=' ', place= :back)
     raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String
@@ -190,14 +190,18 @@ module StringHelper
       end
     end
   end
+
+  # @raise [ArgumentError] via {#static}
+  # see {#static}
   def static!(n, char=' ')
     return self.replace(self.static(n, char))
   end
 
   # Returns true or false if the string if "true" or "false". else nil
   #
-  # @return [TrueClass]
-  # @return [FalseClass]
+  # @return [TrueClass] on self == "true"
+  # @return [FalseClass] on self == "false"
+  # @return [NilClass] else
   def to_t
     case self
     when "true"
@@ -207,6 +211,18 @@ module StringHelper
     else
       return nil
     end
+  end
+
+  # @return [TrueClass] if self == "true"
+  # @return [FalseClass] else
+  def true?
+    return (self == "true")
+  end
+
+  # @return [TrueClass] on self == "false"
+  # @return [FalseClass] else
+  def false?
+    return (self == "false")
   end
 
   # get only the digits and symbols in the string

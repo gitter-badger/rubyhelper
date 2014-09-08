@@ -61,14 +61,6 @@ class StringHelperTest < Minitest::Test
     assert_equal(60868, "06.08.68".to_ii("\. \t\-"))
   end
 
-  def test_to_t
-    assert_equal(true, "true".to_t)
-    assert_equal(false, "false".to_t)
-    assert_equal(nil, "truex".to_t)
-    assert_equal(nil, "xfalsex".to_t)
-    assert_equal(nil, "".to_t)
-  end
-
   def test_static
     assert_equal("r", "bonjour".static(1, " "))
     assert_equal("our", "bonjour".static(3, " "))
@@ -84,6 +76,26 @@ class StringHelperTest < Minitest::Test
     assert_equal(" bonjour ", "bonjour".static(9, " ", :center))
     assert_equal(" bonjour  ", "bonjour".static(10, " ", :center))
     assert_equal("  bonjour  ", "bonjour".static(11, " ", :center))
+  end
+
+  def test_to_t
+    assert_equal(true, "true".to_t)
+    assert_equal(false, "false".to_t)
+    assert_equal(nil, "truex".to_t)
+    assert_equal(nil, "xfalsex".to_t)
+    assert_equal(nil, "".to_t)
+  end
+
+  def test_true?
+    assert_equal(true, "true".true?)
+    assert_equal(false, "false".true?)
+    assert_equal(false, "other".true?)
+  end
+
+  def test_false?
+    assert_equal(false, "true".false?)
+    assert_equal(true, "false".false?)
+    assert_equal(false, "other".false?)
   end
 
   def test_get_int
