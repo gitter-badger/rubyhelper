@@ -1,4 +1,12 @@
-- v1.1.1
+v1.2:
+	- Improve String#to_case
+	- Improve, complete and fix documentation and tests
+	- Add String#true? and String#false? methods
+	- Improve @raises from Arguments of the StringHelper methods
+	- Improve Array#sum and #sumf methods to add other arrays
+	- Hotfix to remove the pry requierement
+
+v1.1.1:
 	- Add lot of documentation
 	- ArrayHelper#mins and #maxs can raise ArgumentError s
 	- Improve Array#compacti
