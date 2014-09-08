@@ -61,8 +61,8 @@ module StringHelper
 
   # permit to do upcase/downcase/capitalize easier with a simple param
   #
-  # @param case_mod [Symbol] :upcase, :capitalize or :downcase or nil if no case change
-  # @return [String] self changed
+  # @param case_mod [Symbol] :upcase, :capitalize, :classic or :downcase or nil if no case change. The capitalize correspond to {#scapitalize} and classic to {#capitalize}
+  # @return [String] self changed to downcase, upcase, capitalize or classic_capitalize
   def to_case(case_mod = :downcase)
     case case_mod
     when :upcase
@@ -70,6 +70,8 @@ module StringHelper
     when :downcase
       return self.downcase
     when :capitalize
+      return self.scapitalize
+    when :classic
       return self.capitalize
     else
       return self
@@ -117,7 +119,7 @@ module StringHelper
 
   # CRYXOR (one time pad dirt application)
   #
-  # @return [String]
+  # @return [String] encrypted mail
   def ^(k)
     str = ""
     self.size.times do |i|
@@ -129,7 +131,7 @@ module StringHelper
   # SHA2 shortcuts
   # see {Digest::SHA2#hexdigest}
   #
-  # @return [String]
+  # @return [String] the sha2 hash value of self
   def sha2
     Digest::SHA2.hexdigest(self)
   end
@@ -144,6 +146,7 @@ module StringHelper
   # Get a str with a static length.
   # If the str size > n, reduce the str (keep str from the (param place) )
   # You should check the test files for examples
+  # Note : {#center} {#left} and {#right} do a similar work.
   #
   # @param n [Integer] number of char
   # @param char [String] char to replace if the initial str is too short
