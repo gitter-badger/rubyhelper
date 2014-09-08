@@ -1,4 +1,9 @@
-- v1.1.1
+v1.2:
+	- Improve String#to_case
+	- Fix documentation norme
+	- Fix tests
+
+v1.1.1:
 	- Add lot of documentation
 	- ArrayHelper#mins and #maxs can raise ArgumentError s
 	- Improve Array#compacti

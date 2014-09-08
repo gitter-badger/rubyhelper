@@ -5,17 +5,17 @@ require_relative '../lib/rubyhelper'
 class StringHelperTest < Minitest::Test
 
   def test_to_plain
-    assert_equal("bonjour".to_plain, "bonjour")
-    assert_equal("bonjouré".to_plain, "bonjoure")
-    assert_equal("bonjo\\AAAur".to_plain, "bonjo\\AAAur")
-    assert_equal("bonjo€".to_plain, "bonjo")
+    assert_equal("bonjour", "bonjour".to_plain)
+    assert_equal("bonjoure", "bonjouré".to_plain, "bonjoure")
+    assert_equal("bonjo\\AAAur", "bonjo\\AAAur".to_plain)
+    assert_equal("bonjo", "bonjo€".to_plain)
   end
 
   def test_p
-    assert_equal("bonjour".p, "bonjour")
-    assert_equal("bonjouré".p, "bonjoure")
-    assert_equal("bonjo\\AAAur".p, "bonjo\\AAAur")
-    assert_equal("bonjo€".p, "bonjo€")
+    assert_equal("bonjour", "bonjour".p)
+    assert_equal("bonjoure", "bonjouré".p)
+    assert_equal("bonjo\\AAAur", "bonjo\\AAAur".p)
+    assert_equal("bonjo€", "bonjo€".p)
   end
 
   def test_to_case_downcase
@@ -39,34 +39,34 @@ class StringHelperTest < Minitest::Test
   end
 
   def test_to_ascii
-    assert_equal("bonjoure".to_ascii(""), "bonjoure")
-    assert_equal("bonjouré".to_ascii(""), "bonjoure")
-    assert_equal("bonjouré".to_ascii("."), "bonjoure")
-    assert_equal("bonjour€".to_ascii(""), "bonjour")
-    assert_equal("bonjour€".to_ascii("."), "bonjour.")
+    assert_equal("bonjoure", "bonjoure".to_ascii(""))
+    assert_equal("bonjoure", "bonjouré".to_ascii(""))
+    assert_equal("bonjoure", "bonjouré".to_ascii("."))
+    assert_equal("bonjour", "bonjour€".to_ascii(""))
+    assert_equal("bonjour.", "bonjour€".to_ascii("."))
   end
 
   def test_to_fi
-    assert_equal("bonjour".to_fi, 0.0)
-    assert_equal("bonj1our".to_fi, 0.0)
-    assert_equal("1.1.1".to_fi, 1.1)
-    assert_equal("1.1".to_fi, 1.1)
-    assert_equal("1,1".to_fi, 1.1)
-    assert_equal(",1,1".to_fi, 0.1)
+    assert_equal(0.0, "bonjour".to_fi)
+    assert_equal(0.0, "bonj1our".to_fi)
+    assert_equal(1.1, "1.1.1".to_fi)
+    assert_equal(1.1, "1.1".to_fi)
+    assert_equal(1.1, "1,1".to_fi)
+    assert_equal(0.1, ",1,1".to_fi)
   end
 
   def test_to_ii
-    assert_equal("1 1".to_ii(), 11)
-    assert_equal("06.08.68".to_ii("."), 60868)
-    assert_equal("06.08.68".to_ii("\. \t\-"), 60868)
+    assert_equal(11, "1 1".to_ii())
+    assert_equal(60868, "06.08.68".to_ii("."))
+    assert_equal(60868, "06.08.68".to_ii("\. \t\-"))
   end
 
   def test_to_t
-    assert_equal("true".to_t, true)
-    assert_equal("false".to_t, false)
-    assert_equal("truex".to_t, nil)
-    assert_equal("xfalsex".to_t, nil)
-    assert_equal("".to_t, nil)
+    assert_equal(true, "true".to_t)
+    assert_equal(false, "false".to_t)
+    assert_equal(nil, "truex".to_t)
+    assert_equal(nil, "xfalsex".to_t)
+    assert_equal(nil, "".to_t)
   end
 
   def test_static
