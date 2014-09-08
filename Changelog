@@ -4,9 +4,10 @@ v1.2:
 	- Add String#true? and String#false? methods
 	- Improve @raises from Arguments of the StringHelper methods
 	- Improve Array#sum and #sumf methods to add other arrays
+	- Add Array#mirror to cut in 2 parts an array with association between
 	- Hotfix to remove the pry requierement
 
-v1.1.1:
+v1.1:
 	- Add lot of documentation
 	- ArrayHelper#mins and #maxs can raise ArgumentError s
 	- Improve Array#compacti
@@ -15,3 +16,4 @@ v1.1.1:
 	- Replace StringHelper#to_f with #to_fi
 	- StringHelper#to_ii can raise ArgumentError
 	- Fix tests
+	- First valid release with lot of functions

@@ -1,3 +1,3 @@
 module RubyHelper
-  VERSION = '1.2.alpha3'
+  VERSION = '1.2.alpha4'
 end
