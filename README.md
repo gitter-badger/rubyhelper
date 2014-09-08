@@ -12,12 +12,12 @@ The source code is available here  : https://gitlab.com/poulet_a/rubyhelper
 ## How is it works ?
 See the [wtf] section too know what is exactly this stuff.  
 Too use the gem, install it :
-```
+```bash
 $ gem install rubyhelper # install the last stable version
 ```
 
 To use it in your ruby project, use
-```
+```ruby
 require 'rubyhelper'
 ```
 
@@ -61,17 +61,17 @@ is a little messy. Don't look back 1.1 ;)
 
 
 # TODO
-## Benchmark
+### Benchmark
 - Hash.except with  
-	```
+	```ruby
 		h.delete_if{|k| [:a].include? k}
 	```  
 
-## Improve VersionHelper
+### Improve VersionHelper
 - Add test
 - Add more documentation
 
-## Improve main tests
+### Improve main tests
 - Add few tests for untested features
 - Improve existing tests (mainly on StringHelper)
 
