@@ -24,16 +24,23 @@ module ArrayHelper
   # if there is not integer, it will do a to_s.to_i of the element to try
   # find an integer in the element. else, replace by a simple 0
   #
+  # @param toadd [Array] if not nil, the array will be added like : [1,2,3].sum([1,1]) => [2,3,3]
   # @return [Integer] the sum of each element (converted via .to_s.to_i)
-  def sum
-    return (self.size > 0) ? (self.map{|e| e.to_s.to_i}.reduce(:+)) : (0)
+  # @return [Array] an array wich contain the sum of a1[i] + a2[i]
+  def sum(toadd=nil)
+    return (self.size > 0) ? (self.map{|e| e.to_s.to_i}.reduce(:+)) : (0) if toadd.nil?
+    raise ArgumentError, 'Argument is not an Array' unless toadd.is_a? Array
+    return self.zip(toadd).map{|pair| pair.map{|e| e.to_s.to_i}.reduce(&:+) }
   end
 
   # lke sum by with a to_f instead of to_i
   #
   # @return [Float] the sum of each element (converted via .to_s.to_f)
-  def sumf
-    return (self.size > 0) ? (self.map{|e| e.to_s.to_f}.reduce(:+)) : (0.0)
+  # @return [Array] an array wich contain the sum of a1[i] + a2[i]
+  def sumf(toadd=nil)
+    return (self.size > 0) ? (self.map{|e| e.to_s.to_f}.reduce(:+)) : (0.0) if toadd.nil?
+    raise ArgumentError, 'Argument is not an Array' unless toadd.is_a? Array
+    return self.zip(toadd).map{|pair| pair.map{|e| e.to_s.to_f}.reduce(&:+) }
   end
 
   # Use the sum and divide by the size of the array.

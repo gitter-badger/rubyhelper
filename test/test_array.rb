@@ -14,10 +14,20 @@ class ArrayHelperTest < Minitest::Test
     assert_equal(0, [].sum)
   end
 
+  def test_sum_with_array
+    assert_equal([2,3,4], [1,2,3].sum([1,1,1]))
+    assert_equal([2,3,3], [1,2,3].sum([1,1]))
+    assert_equal([2,3], [1,2].sum([1,1,1]))
+    assert_equal([], [].sum([1,1,1]))
+    assert_equal([1,1,1,3,1,5], [1,1,2,2,3,3].sum([0, 0,-1,+1,-2,+2]))
+  end
+
   def test_sumf
     assert_equal(12.0, [1,2, 9].sumf)
     assert_equal(0.1, [0.01, 0.09, -0, -1, 1.1, -0.1].sumf.round(2))
     assert_equal(0.0, [].sumf)
+    assert_equal([2.0,3.0], [1,2].sumf([1,1,1]))
+    assert_equal([], [].sumf([1,1,1]))
   end
 
   def test_average
