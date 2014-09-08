@@ -5,17 +5,21 @@ require 'digest'
 
 module StringHelper
 
+  # TODO : raise error on invalid utf-8 param replace
   # Force utf-8 encoding (shortcut ;) ! )
   #
+  # @raise [ArgumentError] if replace is not a String
   # @param replace [String] replace invalids chars by other chas
   # @return [String] utf-8 string
   def utf8 replace=''
+    raise ArgumentError, 'replace is not a valid char (String)' unless replace.is_a? String
     return self.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: replace)
   end
 
   # see {#utf8}
   #
-  # @return [String]
+  # @raise [ArgumentError] if replace is not a String (via {#utf8})
+  # @return [String] utf-8 valid string
   def utf8!
     return self.replace(self.utf8)
   end
@@ -24,15 +28,17 @@ module StringHelper
   # Remove accents from the string (convert to ASCII chars !)
   # And then, change the case as first argument if not nil
   #
+  # @raise [ArgumentError] if replace is not a String (via {#p} and {#utf8})
   # @param case_mod [Symbol] :upcase, :capitalize or :downcase or nil for no case change
   # @param replace [String] if a char is not utf8 valid, character will replace it
-  # @return [String] self changed
+  # @return [String] self changed without accents and non-utf-8 chars
   def to_plain(case_mod = nil, replace='')
     return self.p(replace).utf8(replace).to_case(case_mod)
   end
 
   # see {#to_plain}
   #
+  # @raise [ArgumentError] if replace is not a String (via {#to_plain})
   # @return [String]
   def to_plain!(case_mod = nil, replace='')
     return self.replace(self.to_plain(case_mod, replace))
@@ -41,6 +47,7 @@ module StringHelper
   # Remove accents from the string, and replace it by the same letter in ASCII
   # Note : it doesn't remove non ASCII characters
   #
+  # @raise [ArgumentError] if replace is not a String (via {#utf8})
   # @param replace [String] replace by character default case
   # @return [String] self cahnged
   def p(replace='')
@@ -54,6 +61,7 @@ module StringHelper
 
   # see {#p}
   #
+  # @raise [ArgumentError] if replace is not a String (via {#p})
   # @return [String]
   def p!(replace='')
     return self.replace(self.p(replace))
@@ -87,14 +95,17 @@ module StringHelper
 
   # Return a simple ascii string. Invalid characters will be replaced by "replace" (argument)
   # Accents are removed first and replaced by the equivalent ASCII letter (example : 'é' => 'e')
+  # no raise error on {#p} because of default doesn't let it happen ;)
   #
+  # @raise [ArgumentError] if replace is not a String char
   # @param replace [String] a caracter to replace non-ascii chars
   # @param case_mod [Symbol] :upcase, :capitalize or :downcase or nil if no case change
   # @return [String] self changed
-  def to_ascii(replace="", case_mod = nil)
+  def to_ascii(replace='', case_mod = nil)
+    raise ArgumentError, "Argument replace is not a String char" unless replace.is_a? String
     s = String.new
     self.p.each_char do |c|
-      s += ((c.ord > 255) ? (replace.to_s) : (c))
+      s += ((c.ord > 255) ? (replace) : (c))
     end
     return s.to_case(case_mod)
   end
@@ -119,8 +130,10 @@ module StringHelper
 
   # CRYXOR (one time pad dirt application)
   #
+  # @raise [ArgumentError] if key is not a valid String
   # @return [String] encrypted mail
   def ^(k)
+    raise ArgumentError, "The key MUST BE a String" unless key.is_a? String
     str = ""
     self.size.times do |i|
       str << (self[i].ord ^ k[i % k.size].ord).chr
