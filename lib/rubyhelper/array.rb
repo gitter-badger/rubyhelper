@@ -101,17 +101,11 @@ module ArrayHelper
     return self.replace(self.compacti)
   end
 
-  # TODO
   # [:a, :b, :c, 1, 2, 3] => [[:a, 1], [:b, 2], [:c, 3]]
   # [:a, :b, :c, :d, 1, 2, 3] => [[:a, 1], [:b, 2], [:c, 3], [:d, nil]]
   # [:a, :b, :c, 1, 2, 3, 4] => [[:a, 2], [:b, 3], [:c, 4], [1, nil]]
   def mirror
     return self[0..(size/2+size%2-1)].zip(self[(size/2+size%2)..-1])
-  end
-
-  # TODO
-  # [[:a, 1], [:b, 2], [:c, 3]] => [:a, 1, :b, 2, :c, 3]
-  def mirror_to_a
   end
 
 end

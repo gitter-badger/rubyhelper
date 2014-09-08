@@ -48,15 +48,11 @@ class ArrayHelperTest < Minitest::Test
     assert_equal([" "], ["", " ", nil].compacti)
   end
 
-  # TODO
+  # + maths : ok
   def test_mirror
    assert_equal([[:a, 1], [:b, 2], [:c, 3]], [:a, :b, :c, 1, 2, 3].mirror)
    assert_equal([[:a, 1], [:b, 2], [:c, 3], [:d, nil]], [:a, :b, :c, :d, 1, 2, 3].mirror)
    assert_equal([[:a, 2], [:b, 3], [:c, 4], [1, nil]], [:a, :b, :c, 1, 2, 3, 4].mirror)
-  end
-
-  # TODO
-  def test_mirror_to_a
   end
 
 end
