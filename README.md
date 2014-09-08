@@ -5,7 +5,9 @@ Last Stable Gem [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http:/
 - Last release	v1.1	=> see the branch #master  
 - Last dev	v1.2	=> see the branch #dev  
 
-You can see the documentation here : http://rubydoc.info/gems/rubyhelper/
+You can see the documentation here : http://rubydoc.info/gems/rubyhelper/  
+The source code is available here  : https://gitlab.com/poulet_a/rubyhelper  
+
 
 ## How is it works ?
 See the [wtf] section too know what is exactly this stuff.  
