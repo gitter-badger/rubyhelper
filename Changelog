@@ -1,7 +1,8 @@
 v1.2:
 	- Improve String#to_case
-	- Fix documentation norme
-	- Fix tests
+	- Improve, complete and fix documentation and tests
+	- Add String#true? and String#false? methods
+	- Improve @raises from Arguments of the StringHelper methods
 
 v1.1.1:
 	- Add lot of documentation
