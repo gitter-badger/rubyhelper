@@ -1,7 +1,9 @@
 # rubyhelper
 
-Gem [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)  
-Dev [![GitHub version](https://badge.fury.io/gh/pouleta%2Frubyhelper.svg)](http://badge.fury.io/gh/pouleta%2Frubyhelper)  
+Last Stable Gem [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)  
+
+- Last release	v1.1	=> see the branch #master  
+- Last dev	v1.2	=> see the branch #dev  
 
 You can see the documentation here : http://rubydoc.info/gems/rubyhelper/
 
