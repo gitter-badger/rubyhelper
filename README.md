@@ -19,6 +19,7 @@ To use it in your ruby project, use
 require 'rubyhelper'
 ```
 
+
 ## Wtf ?
 This gem is my own creation. It is a compilation of shortcuts, improvement,
 helpers about the basic classes, String, Array, ... to make your work easier.  
