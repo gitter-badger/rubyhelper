@@ -86,7 +86,7 @@ module ArrayHelper
     return Array(self.sort[0..(n-1)])
   end
 
-  # The Same as compact but remove empty string too
+  # Same as {#compact} but remove empty string too
   # see #compact
   #
   # @return [Array] compacted array
