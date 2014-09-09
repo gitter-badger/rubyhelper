@@ -1,10 +1,14 @@
 v1.2:
+	** Improvements **
 	- Improve String#to_case
 	- Improve, complete and fix documentation and tests
-	- Add String#true? and String#false? methods
 	- Improve @raises from Arguments of the StringHelper methods
 	- Improve Array#sum and #sumf methods to add other arrays
+	** New features **
+	- Add String#true? and String#false? methods
 	- Add Array#mirror to cut in 2 parts an array with association between
+	- Add ArgumentError.force_type to raise error friendly ;)
+	** Fixs **
 	- Hotfix to remove the pry requierement
 
 v1.1:
