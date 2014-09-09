@@ -45,6 +45,7 @@ module NumericHelper
   end
 
   # return true if peer
+  # you can see also {#odd?}
   #
   # @return [true or false]
   def peer?
@@ -52,6 +53,7 @@ module NumericHelper
   end
 
   # return true if odd
+  # you can see also {#peer?}
   #
   # @return [true or false]
   def odd?
