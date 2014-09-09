@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
               	  "lib/rubyhelper/string.rb",
               	  "lib/rubyhelper/array.rb",
             	  "lib/rubyhelper/numeric.rb",
+            	  "lib/rubyhelper/integer.rb",
                   "lib/rubyhelper/time.rb",
                   "lib/rubyhelper/hash.rb",
                   "lib/rubyhelper/argumenterror.rb",
