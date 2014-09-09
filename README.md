@@ -12,14 +12,15 @@ The source code is available here  : https://gitlab.com/poulet_a/rubyhelper
 ## How is it works ?
 See the [wtf] section too know what is exactly this stuff.  
 Too use the gem, install it :
-```
+```bash
 $ gem install rubyhelper # install the last stable version
 ```
 
 To use it in your ruby project, use
-```
+```ruby
 require 'rubyhelper'
 ```
+
 
 ## Wtf ?
 This gem is my own creation. It is a compilation of shortcuts, improvement,
@@ -44,15 +45,15 @@ The following sources code is not only my stuff, but also an implementation of
 idea found on stackoverflow, ...  
 
 The developpement running like that :  
-1. Found idea  
-2. Put it in the gem  
-3. Developpe few tests  
-4. Push it in a unstable gem (like v1.0.alpha1)  
+1. Found idea or a bug  
+2. Puts idea or fix it in the source code (can be switched with 3.)  
+3. Develops few tests and documentation  
+4. *Optional * Push the new code in the dev branch (and tag it like v1.0.alpha2)  
 5. **repeat 1-4 actions few times**  
-6. Improve tests  
-7. Validate the version  
-8. Push the version into master branch and tag it  
-9. Push new "stable" version (like v1.1)  
+6. Improves tests and checks the documentation, hunts the bugs  
+7. Validates the version  
+8. Push the version into master branch and tag it as stable (like v1.2). Publish the gem.  
+9. Push new releases if needed (hotfixs mainly) (like v1.2.2)  
 
 Note about the first time developpement :  
 I didn't predict to keep this gem in dev so the first part of the dev
@@ -60,17 +61,17 @@ is a little messy. Don't look back 1.1 ;)
 
 
 # TODO
-## Benchmark
+### Benchmark
 - Hash.except with  
-	```
+	```ruby
 		h.delete_if{|k| [:a].include? k}
 	```  
 
-## Improve VersionHelper
+### Improve VersionHelper
 - Add test
 - Add more documentation
 
-## Improve main tests
+### Improve main tests
 - Add few tests for untested features
 - Improve existing tests (mainly on StringHelper)
 
