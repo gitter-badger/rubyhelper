@@ -46,36 +46,39 @@ The following sources code is not only my stuff, but also an implementation of
 idea found on stackoverflow, ...  
 
 The developpement running like that :  
-1. Found idea or a bug  
+### Development time (dev branch) ###
+1. Found idea or a bug, create a new feature-* branch  
 2. Puts idea or fix it in the source code (*can be switched with 3.*)  
-3. Develops few tests and documentation  
-4. Push the new code in the dev branch (*and tag it like v1.0.alpha2*)
-5. **repeat 1-4 actions few times**  
-6. Improves tests and checks the documentation, hunts the bugs  
-7. Validates the version  
-8. Push the version into master branch and tag it as stable (*like v1.2*). Publish the gem.  
-9. Push new releases if needed (*hotfixs mainly*) (*like v1.2.2*)  
+3. Develops few tests and documente the code (*can be switched with 2.*)  
+4. Push the new code in the dev branch (*and optionaly tag it like v1.0.alpha2*)
+5. Update the Changelog
+6. **repeat 1-5 actions few times until the next version**  
+### Release Time (release branch) ###
+7. Improves tests and checks the documentation, hunts the bugs  
+8. Validates the version  
+9. Push the version into branch#master and tag it as stable (*like v1.2*). Publish the gem.  
+10. Push new releases if needed (*hotfixs mainly*) (*like v1.2.2*)  
+11. Go to branch#dev, merge with branch#release and returns to the next dev version  
 
-Note about the first time developpement :  
+**Note about the first time developpement**  
 I didn't predict to keep this gem in dev so the first part of the dev
-is a little messy. Don't look back 1.1 ;)
+is a little messy. Don't look back 1.1 ;)  
 
 
 # TODO
 ### Benchmark
 - Hash.except with  
-	```ruby
-		h.delete_if{|k| [:a].include? k}
-	```  
+```ruby
+h.delete_if{|k| [:a].include? k}
+```  
 
 ### Improve VersionHelper
-- Add test
+- Add tests
 - Add more documentation
-
-### Improve main tests
-- Add few tests for untested features
-- Improve existing tests (mainly on StringHelper)
+- Add more features
+- Check for usability
 
 # Contributors
-- poulet_a : Creator and main developper. Feel free to ask me a question by email.  
-	email   : arthur.poulet AT cryptolab.net [OpenPGP : 0x6D9EA34A]  
+- poulet_a : Creator and main developer. Feel free to ask me a question by email.  
+	email: arthur.poulet AT cryptolab.net [OpenPGP : 0x6D9EA34A]  
+- bakhou_r : Developer from jerevedunemaison.com

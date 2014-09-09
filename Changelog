@@ -1,3 +1,7 @@
+v1.3:
+	** New features **
+	
+
 v1.2:
 	** Improvements **
 	- Improve String#to_case
