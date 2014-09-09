@@ -1,6 +1,7 @@
 v1.3:
 	** Improvements **
 	** New features **
+	- Add Integer#peer? ( = not odd?)
 	** Fixs **
 
 v1.2:
