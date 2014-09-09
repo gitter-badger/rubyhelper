@@ -57,7 +57,7 @@ module ArrayHelper
   #
   # @return [Integer] self.sum / self.size. 0 if no elements
   def average
-    return (self.size > 0) ? (self.sum / self.size) : (0)
+    return (self.size > 0) ? (self.sum.to_f / self.size).round : (0)
   end
 
   # Same than {#average} but use to_f instead of to_i
