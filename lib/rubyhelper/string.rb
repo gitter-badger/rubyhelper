@@ -275,9 +275,10 @@ module StringHelper
   # split th string and only keep the non empty striped values
   #
   # @param sep [String] separator
+  # @param sep [Regexp] separator
   # @return [Array]
   def splity(sep = "\n")
-    raise ArgumentError, "sep must be a string" unless sep.is_a? String
+    raise ArgumentError, "sep must be a string or a regex" unless sep.is_a? String or sep.is_a? Regexp
     return self.split(sep).map{|e| ((e.strip.empty?) ? (nil) : (e.strip))}.compact
   end
 
