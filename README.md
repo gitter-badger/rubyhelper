@@ -46,13 +46,15 @@ The following sources code is not only my stuff, but also an implementation of
 idea found on stackoverflow, ...  
 
 The developpement running like that :  
+
 ### Development time (dev branch) ###
 1. Found idea or a bug, create a new feature-* branch  
 2. Puts idea or fix it in the source code (*can be switched with 3.*)  
 3. Develops few tests and documente the code (*can be switched with 2.*)  
-4. Push the new code in the dev branch (*and optionaly tag it like v1.0.alpha2*)
+4. Merge the new code in the dev branch with "--no-ff" option (*and optionaly tag it like v1.0.alpha2*)
 5. Update the Changelog
 6. **repeat 1-5 actions few times until the next version**  
+
 ### Release Time (release branch) ###
 7. Improves tests and checks the documentation, hunts the bugs  
 8. Validates the version  
