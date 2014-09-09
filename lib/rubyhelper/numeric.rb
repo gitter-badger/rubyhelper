@@ -44,6 +44,20 @@ module NumericHelper
     return self.replace(self.min(maximum_value))
   end
 
+  # return true if peer
+  #
+  # @return [true or false]
+  def peer?
+    return (self % 2).zero? ? true : false
+  end
+
+  # return true if odd
+  #
+  # @return [true or false]
+  def odd?
+    not peer?
+  end
+
 end
 
 class Numeric
