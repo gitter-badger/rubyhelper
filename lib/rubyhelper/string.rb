@@ -271,6 +271,24 @@ module StringHelper
     return self.replace(self.scapitalize)
   end
 
+  # by bakhou_r@epitech.eu
+  # split th string and only keep the non empty striped values
+  #
+  # @param sep [String] separator
+  # @return [Array]
+  def splity(sep = "\n")
+    raise ArgumentError, "sep must be a string" unless sep.is_a? String
+    return self.split(sep).map{|e| ((e.strip.empty?) ? (nil) : (e.strip))}.compact
+  end
+
+  # see {#splity}
+  #
+  # @param sep [String]
+  # @return [Array]
+  def splity!(sep)
+    return self.replace(self.splity(sep))
+  end
+
 end
 
 class String

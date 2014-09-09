@@ -116,4 +116,10 @@ class StringHelperTest < Minitest::Test
     assert_equal("1 And 1 Sontdesvoleurs", "1 and 1 sontdesvoleurs".scapitalize)
   end
 
+  def test_splity
+    assert_equal(["bonjour", "à", "toi"], "bonjour\nà\ntoi".splity)
+    assert_equal(["bonjour", "à", "toi"], "\nbonjour\n\nà\n\ntoi\n\n\r".splity)
+    assert_equal(["bonjour", "à", "toi"], "\nbonjour\n\nà\n\ntoi\n\n\r".splity)
+  end
+
 end
