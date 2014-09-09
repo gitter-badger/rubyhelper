@@ -11,11 +11,8 @@ class ArrayHelperTest < Minitest::Test
   end
 
   def test_joini_error
-    begin
+    assert_raises ArgumentError do
       [].joini 1
-      assert false
-    rescue ArgumentError => e
-      assert true
     end
   end
 

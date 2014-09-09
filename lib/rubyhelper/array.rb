@@ -11,8 +11,7 @@ module ArrayHelper
   # @param sep [String] uniq separator (join alias {#join})
   # @return [String] string joined
   def joini sep
-    case sep.class
-    when Array
+    if sep.is_a? Array
       str = String.new
       i = 0
       self.each do |e|
@@ -20,7 +19,7 @@ module ArrayHelper
         i += 1
       end
       return str[0..-2]
-    when String
+    elsif sep.is_a? String
       return self.join(sep)
     else
       raise ArgumentError, 'Argument is not an array or a string'
