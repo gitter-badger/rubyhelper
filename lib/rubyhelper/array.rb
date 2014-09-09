@@ -110,6 +110,11 @@ module ArrayHelper
   # [:a, :b, :c, 1, 2, 3] => [[:a, 1], [:b, 2], [:c, 3]]
   # [:a, :b, :c, :d, 1, 2, 3] => [[:a, 1], [:b, 2], [:c, 3], [:d, nil]]
   # [:a, :b, :c, 1, 2, 3, 4] => [[:a, 2], [:b, 3], [:c, 4], [1, nil]]
+  # The array will be transformed into an array of couple ([x,y])
+  # with [0e, N/2e] where N/2e is the element at size/2. If the array have
+  # an odd number of elements, it will add a nil value at the end.
+  #
+  # @return [Array] mirrored array
   def mirror
     return self[0..(size/2+size%2-1)].zip(self[(size/2+size%2)..-1])
   end

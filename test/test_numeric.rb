@@ -4,6 +4,12 @@ require_relative '../lib/rubyhelper'
 
 class NumericHelperTest < Minitest::Test
 
+  def test_sign
+    assert_equal("-", -1.sign("+", "-"))
+    assert_equal("+", 0.sign("+", "-"))
+    assert_equal("+", 1.sign("+", "-"))
+  end
+
   def test_min
     assert_equal(2, 1.min(2))
     assert_equal(1, 1.min(1))
