@@ -42,4 +42,8 @@ class NumericHelperTest < Minitest::Test
     assert_equal(false, 3.0.peer?)
   end
 
+  def test_solve_2d
+    assert_equal([0], Numeric.solve_2d(1,0,0))
+  end
+
 end
