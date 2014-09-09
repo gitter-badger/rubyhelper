@@ -120,6 +120,8 @@ class StringHelperTest < Minitest::Test
     assert_equal(["bonjour", "à", "toi"], "bonjour\nà\ntoi".splity)
     assert_equal(["bonjour", "à", "toi"], "\nbonjour\n\nà\n\ntoi\n\n\r".splity)
     assert_equal(["bonjour", "à", "toi"], "\nbonjour\n\nà\n\ntoi\n\n\r".splity)
+    assert_equal(["bonjour", "à", "toi"], "bonjourXàXtoiX".splity("X"))
+    assert_equal(["bonjour", "à", "toi"], "bonjourXàYtoiX".splity(/X|Y/))
   end
 
 end
