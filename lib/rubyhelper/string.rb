@@ -225,7 +225,8 @@ module StringHelper
     return (self == "false")
   end
 
-  # get only the digits and symbols in the string
+  # get only the digits and + - symbols in the string
+  # you should see also {#get_float}
   #
   # @param sign (true/false) if true, keep the - and + signs
   # @return [String] epured string
@@ -241,7 +242,8 @@ module StringHelper
     return self.replace(self.get_int(sign))
   end
 
-  # as get_int but with . and ,
+  # get only the digits and + - . , symbols in the string
+  # you can also see {#to_fi} to turn the String into a Float
   #
   # @param sign (true/false) if true, keep the - and + signs
   # @return [String] epured_string
