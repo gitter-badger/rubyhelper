@@ -9,6 +9,7 @@ v1.2:
 	- Add String#true? and String#false? methods
 	- Add Array#mirror to cut in 2 parts an array with association between
 	- Add ArgumentError.force_type to raise error friendly ;)
+	- Add String#splity to a pretty cool split :)
 	** Fixs **
 	- Hotfix to remove the pry requierement
 
