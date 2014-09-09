@@ -3,6 +3,7 @@ v1.3:
 	** New features **
 	- Add Integer#peer? ( = not odd?)
 	** Fixs **
+	- Fix Array#average rounded dirty
 
 v1.2:
 	** Improvements **
