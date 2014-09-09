@@ -6,18 +6,25 @@ module ArrayHelper
   # You can use an array as separator : [",", " "] will successively ',' and ' '
   # Exemple : ["a", "b", "c"].joini(["x", "y"]) => "axbyc"
   #
-  # @raise [ArgumentError] if sep in not an array
-  # @param sep [Array] array of separator
+  # @raise [ArgumentError] if sep in not an array or a string
+  # @param sep [Array] array of separators
+  # @param sep [String] uniq separator (join alias {#join})
   # @return [String] string joined
   def joini sep
-    raise ArgumentError, 'Argument is not an array' unless sep.is_a? Array
-    str = String.new
-    i = 0
-    self.each do |e|
-      str = str + e.to_s + sep[i % sep.size].to_s
-      i += 1
+    case sep.class
+    when Array
+      str = String.new
+      i = 0
+      self.each do |e|
+        str = str + e.to_s + sep[i % sep.size].to_s
+        i += 1
+      end
+      return str[0..-2]
+    when String
+      return self.join(sep)
+    else
+      raise ArgumentError, 'Argument is not an array or a string'
     end
-    return str[0..-2]
   end
 
   # Do the sum of an array of integer.
