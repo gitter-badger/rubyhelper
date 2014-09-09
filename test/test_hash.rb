@@ -2,9 +2,9 @@
 require 'minitest/autorun'
 require_relative '../lib/rubyhelper'
 
-class ArrayHelperTest < Minitest::Test
+class HashHelperTest < Minitest::Test
 
-  def test_joini
+  def test_except
     assert_equal({ :data => :a, :datb => :b },
                  {
                    :datx => :x,

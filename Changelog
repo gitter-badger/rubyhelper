@@ -1,4 +1,19 @@
-- v1.1.1
+v1.2:
+	** Improvements **
+	- Improve String#to_case
+	- Improve, complete and fix documentation and tests
+	- Improve @raises from Arguments of the StringHelper methods
+	- Improve Array#sum and #sumf methods to add other arrays
+	- Improve Array#joini to join with String too
+	** New features **
+	- Add String#true? and String#false? methods
+	- Add Array#mirror to cut in 2 parts an array with association between
+	- Add ArgumentError.force_type to raise error friendly ;)
+	- Add String#splity to a pretty cool split :)
+	** Fixs **
+	- Hotfix to remove the pry requierement
+
+v1.1:
 	- Add lot of documentation
 	- ArrayHelper#mins and #maxs can raise ArgumentError s
 	- Improve Array#compacti
@@ -7,3 +22,4 @@
 	- Replace StringHelper#to_f with #to_fi
 	- StringHelper#to_ii can raise ArgumentError
 	- Fix tests
+	- First valid release with lot of functions
