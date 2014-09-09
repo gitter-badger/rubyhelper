@@ -121,8 +121,8 @@ module StringHelper
   # Example : "12.000.000".to_ii => 12000000
   #
   # @param char [String] char to delete (default : ' ')
-  # @return [Integer] like {Integer#to_i]
   # @raise [ArgumentError] If (param char) is not a String
+  # @return [Integer] like {Integer#to_i]
   def to_ii(char=' ')
     raise ArgumentError, "Argument is not a String" unless char.is_a? String
     self.delete(char).to_i
@@ -191,17 +191,16 @@ module StringHelper
     end
   end
 
-  # @raise [ArgumentError] via {#static}
   # see {#static}
+  #
+  # @raise [ArgumentError] via {#static}
   def static!(n, char=' ')
     return self.replace(self.static(n, char))
   end
 
   # Returns true or false if the string if "true" or "false". else nil
   #
-  # @return [TrueClass] on self == "true"
-  # @return [FalseClass] on self == "false"
-  # @return [NilClass] else
+  # @return [true or false or nil]
   def to_t
     case self
     when "true"
@@ -213,14 +212,16 @@ module StringHelper
     end
   end
 
-  # @return [TrueClass] if self == "true"
-  # @return [FalseClass] else
+  # indicate if the string is "true"
+  #
+  # @return [true or false]
   def true?
     return (self == "true")
   end
 
-  # @return [TrueClass] on self == "false"
-  # @return [FalseClass] else
+  # indicate if the string is "false"
+  #
+  # @return [true or false]
   def false?
     return (self == "false")
   end
@@ -245,7 +246,7 @@ module StringHelper
   # get only the digits and + - . , symbols in the string
   # you can also see {#to_fi} to turn the String into a Float
   #
-  # @param sign (true/false) if true, keep the - and + signs
+  # @param sign [true or false] if true, keep the - and + signs
   # @return [String] epured_string
   def get_float(sign = true)
     return self.gsub(/[^\-\+\d\.\,]/, "") if sign == true
