@@ -124,4 +124,18 @@ class StringHelperTest < Minitest::Test
     assert_equal(["bonjour", "à", "toi"], "bonjourXàYtoiX".splity(/X|Y/))
   end
 
+  def test_ha2m2
+    #simple match
+    assert_equal(10_000.0, "1 ha".ha2m2)
+    assert_equal(10_000.0, "1 Ha".ha2m2)
+    assert_equal(10_000.0, "ha 1".ha2m2)
+    assert_equal(10_000.0, "1ha".ha2m2)
+    #advanced match
+    assert_equal(12000, "1.2 Ha".ha2m2)
+    assert_equal(12000, " 1,200 Ha".ha2m2)
+    #not mach
+    assert_equal(1.0, "1 m2".ha2m2)
+    assert_equal(1.0, "1 h a".ha2m2)
+  end
+
 end

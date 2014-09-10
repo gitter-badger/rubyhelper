@@ -293,6 +293,14 @@ module StringHelper
     return self.replace(self.splity(sep))
   end
 
+  # transforme the string into an float in m² if containing "ha"
+  #
+  # @return [Float]
+  def ha2m2
+    return self.gsub("m2", "").get_float.to_fi unless self.match(/(\A|[^[:alpha:]])ha(\Z|[^[:alpha:]])/i)
+    return self.gsub("m2", "").get_float.to_fi * 10_000
+  end
+
 end
 
 class String
