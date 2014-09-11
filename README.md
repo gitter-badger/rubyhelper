@@ -48,7 +48,7 @@ idea found on stackoverflow, ...
 The developpement running like that :  
 
 ### Development time (dev branch) ###
-1. Found idea or a bug, create a new feature-* branch  
+1. Found idea, create a new feature-* branch  
 2. Puts idea or fix it in the source code (*can be switched with 3.*)  
 3. Develops few tests and documente the code (*can be switched with 2.*)  
 4. Merge the new code in the dev branch with "--no-ff" option (*and optionaly tag it like v1.0.alpha2*)
@@ -62,23 +62,37 @@ The developpement running like that :
 10. Push new releases if needed (*hotfixs mainly*) (*like v1.2.2*)  
 11. Go to branch#dev, merge with branch#release and returns to the next dev version  
 
+### Bugfix time (release branch) ###
+12. Found bug in the code of a release
+13. Choose between hotfix-*, feature-*, or dev branch
+14. Develop the patch
+15. If hotfix, merge with X.Y and wait for next rc
+
+
 **Note about the first time developpement**  
 I didn't predict to keep this gem in dev so the first part of the dev
 is a little messy. Don't look back 1.1 ;)  
 
 
-# TODO
-### Benchmark
-- Hash.except with  
-```ruby
-h.delete_if{|k| [:a].include? k}
-```  
+## Note about the development
+###Version
+Stable :  
+- X : major version, not compatible very with the previous. Lot of changes
+- X.Y : minor version, new features, almost fully compatible with other X.Y
+- X.Y.Z : release improvement, fix bugs, fully compatible with X.Y.Z
 
-### Improve VersionHelper
-- Add tests
-- Add more documentation
-- Add more features
-- Check for usability
+Development :  
+- X.Y-alpha : 1th dev part. Dev new features
+- X.Y-beta : 2sd part. Dev tests, documentation, improvements, fix, few other feats
+- X.Y-rc : last part. Fixs, documentation, and tests only.
+
+### Branchs
+- master : contain the last vX.Y.Z version published (stable)
+- dev : contain the last alpha/beta versions (dev)
+- release : contain the last rc versions (dev)
+- feature-* : new feature to merge (dev)
+- hotfixs-* : fix from release to merge with dev and X.Y (dev)
+
 
 # Contributors
 - poulet_a : Creator and main developer. Feel free to ask me a question by email.  
