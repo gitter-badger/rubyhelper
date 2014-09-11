@@ -5,6 +5,7 @@ v1.3:
 	- Add Integer#peer? ( = not odd?)
 	- Add String#ha2m2 to convert ha in m2 from string
 	- Add String#get_1int and String#get_1float (see String#get_int and String#get_float)
+	- Add String#get_ints and String#get_floats (see String#get_int and String#get_float)
 	- Add Numeric#peer? and Numeric#odd?, add Integer#peer? too ;) (why no basic peer?)
 	** Fixs **
 	- Fix Array#average rounded dirty
