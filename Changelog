@@ -1,10 +1,14 @@
 v1.3:
 	** Improvements **
+	- Split StringHelper into StringHelper and StringNumericHelper
 	** New features **
 	- Add Integer#peer? ( = not odd?)
 	- Add String#ha2m2 to convert ha in m2 from string
+	- Add String#get_1int and String#get_1float (see String#get_int and String#get_float)
 	** Fixs **
 	- Fix Array#average rounded dirty
+	- Fix the String#get_float
+	- Fix tests on String#get_float
 
 v1.2:
 	** Improvements **
