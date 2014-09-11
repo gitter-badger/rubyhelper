@@ -298,7 +298,8 @@ module StringHelper
   # @return [Float]
   def ha2m2
     return self.gsub("m2", "").get_float.to_fi unless self.match(/(\A|[^[:alpha:]])ha(\Z|[^[:alpha:]])/i)
-    return self.gsub("m2", "").get_float.to_fi * 10_000
+    return self.gsub("m2", "").get_float.to_fi * 10_000 unless self.match(/(\A|[^[:alpha:]])m(2|²)(\Z|[^[:alpha:]])/i)
+    return self.gsub("m2", "").get_float.to_fi
   end
 
 end
