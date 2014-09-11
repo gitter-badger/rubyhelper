@@ -48,25 +48,25 @@ idea found on stackoverflow, ...
 The developpement running like that :  
 
 ### Development time (dev branch) ###
-1. Found idea, create a new feature-* branch  
+1. Found idea, create a new feature-* branch from branch#dev  
 2. Puts idea or fix it in the source code (*can be switched with 3.*)  
 3. Develops few tests and documente the code (*can be switched with 2.*)  
-4. Merge the new code in the dev branch with "--no-ff" option (*and optionaly tag it like v1.0.alpha2*)
-5. Update the Changelog
-6. **repeat 1-5 actions few times until the next version**  
+4. Merge the new code in the branch#dev with "--no-ff" option (*and optionaly tag it like v1.0.alpha2*)  
+5. Update the Changelog etc.  
+6. **repeat 1-5 actions few times until the next X or Y version**  
 
 ### Release Time (release branch) ###
-7. Improves tests and checks the documentation, hunts the bugs  
-8. Validates the version  
-9. Push the version into branch#master and tag it as stable (*like v1.2*). Publish the gem.  
-10. Push new releases if needed (*hotfixs mainly*) (*like v1.2.2*)  
-11. Go to branch#dev, merge with branch#release and returns to the next dev version  
+7. Start a branch#release-X.Y  
+8. Improves tests and checks the documentation, hunts the bugs  
+9. Validates the version  
+10. Push the version into branch#master and tag it as stable (*like v1.2*). Publish the gem.  
+11. Merge with branch#release with branch#dev and got to the next dev version  
 
 ### Bugfix time (release branch) ###
-12. Found bug in the code of a release
-13. Choose between hotfix-*, feature-*, or dev branch
-14. Develop the patch
-15. If hotfix, merge with X.Y and wait for next rc
+13. Found bug in the code of a release, or an improvement  
+14. Develop the patch in branch#hotfix-*  
+15. Merge with branch#master, branch#dev  
+16. Publish the new release vX.Y.Z if needed  
 
 
 **Note about the first time developpement**  
