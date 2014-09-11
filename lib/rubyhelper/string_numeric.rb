@@ -47,6 +47,13 @@ module StringNumericHelper
     return self.match(/(\d+)/).to_a[1].to_s.get_int(sign)
   end
 
+  # see {#get_1int}
+  #
+  # @return [String]
+  def get_1int!(sign = true)
+    return self.replace(self.get_1int(sign))
+  end
+
   # get only the digits and + - . , symbols in the string
   # you can also see {#to_fi} to turn the String into a Float
   #
@@ -72,6 +79,13 @@ module StringNumericHelper
   def get_1float(sign = true)
     return self.match(/([\d\.,\-\+]*\d[\d\.,\-\+]*)/).to_a[1].to_s.get_float(sign) if sign == true
     return self.match(/([\d\.,]*\d[\d\.,]*)/).to_a[1].to_s.get_float(sign)
+  end
+
+  # see {#get_1float}
+  #
+  # @return [String]
+  def get_1float!(sign = true)
+    return self.replace(self.get_1float(sign))
   end
 
   # transforme the string into an float in m² if containing "ha"
