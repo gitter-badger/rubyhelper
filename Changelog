@@ -1,6 +1,7 @@
 v1.3:
 	** Improvements **
 	- Split StringHelper into StringHelper and StringNumericHelper
+	- Improve String#get_int and String#get_float feature (sign can also be :less)
 	** New features **
 	- Add Integer#peer? ( = not odd?)
 	- Add String#ha2m2 to convert ha in m2 from string
