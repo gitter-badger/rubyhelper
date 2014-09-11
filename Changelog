@@ -2,6 +2,7 @@ v1.3:
 	** Improvements **
 	** New features **
 	- Add Integer#peer? ( = not odd?)
+	- Add String#ha2m2 to convert ha in m2 from string
 	** Fixs **
 	- Fix Array#average rounded dirty
 

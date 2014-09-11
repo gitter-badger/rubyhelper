@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
                	  "lib/rubyhelper.rb",
                	  "lib/rubyhelper/gem-version.rb",
               	  "lib/rubyhelper/string.rb",
+              	  "lib/rubyhelper/string_numeric.rb",
               	  "lib/rubyhelper/array.rb",
             	  "lib/rubyhelper/numeric.rb",
             	  "lib/rubyhelper/integer.rb",
@@ -28,6 +29,7 @@ Gem::Specification.new do |s|
 		  "test/test_hash.rb",
 		  "test/test_numeric.rb",
 		  "test/test_string.rb",
+		  "test/test_string_numeric.rb",
 		  "test/test_versionhelper.rb",
 		  ]
   s.homepage    = "https://gitlab.com/poulet_a/rubyhelper"

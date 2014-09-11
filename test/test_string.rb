@@ -46,21 +46,6 @@ class StringHelperTest < Minitest::Test
     assert_equal("bonjour.", "bonjour€".to_ascii("."))
   end
 
-  def test_to_fi
-    assert_equal(0.0, "bonjour".to_fi)
-    assert_equal(0.0, "bonj1our".to_fi)
-    assert_equal(1.1, "1.1.1".to_fi)
-    assert_equal(1.1, "1.1".to_fi)
-    assert_equal(1.1, "1,1".to_fi)
-    assert_equal(0.1, ",1,1".to_fi)
-  end
-
-  def test_to_ii
-    assert_equal(11, "1 1".to_ii())
-    assert_equal(60868, "06.08.68".to_ii("."))
-    assert_equal(60868, "06.08.68".to_ii("\. \t\-"))
-  end
-
   def test_static
     assert_equal("r", "bonjour".static(1, " "))
     assert_equal("our", "bonjour".static(3, " "))
@@ -96,18 +81,6 @@ class StringHelperTest < Minitest::Test
     assert_equal(false, "true".false?)
     assert_equal(true, "false".false?)
     assert_equal(false, "other".false?)
-  end
-
-  def test_get_int
-    assert_equal("1312".get_int(), "1312")
-    assert_equal("ea -ze 13e12 à nnazdaz d".get_int(), "-1312")
-    assert_equal("ea\n ze +13\n12\n à nnazdaz\n\t\n\r d".get_int(), "+1312")
-  end
-
-  def test_get_int
-    assert_equal("13,12".get_float(), "13,12")
-    assert_equal("ea -ze 13e.12 à nnazdaz d".get_float(), "-13.12")
-    assert_equal("ea\n ze +13\n.12\n à nnazdaz\n\t\n\r d".get_float(), "+13.12")
   end
 
   def test_scapitalize
