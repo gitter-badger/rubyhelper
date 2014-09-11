@@ -7,8 +7,7 @@ module ArrayHelper
   # Exemple : ["a", "b", "c"].joini(["x", "y"]) => "axbyc"
   #
   # @raise [ArgumentError] if sep in not an array or a string
-  # @param sep [Array] array of separators
-  # @param sep [String] uniq separator (join alias {#join})
+  # @param sep [Array or String] array of separators or string as an uniq separator (join alias {#join})
   # @return [String] string joined
   def joini sep
     if sep.is_a? Array
