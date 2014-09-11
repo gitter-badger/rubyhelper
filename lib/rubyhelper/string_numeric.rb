@@ -44,8 +44,8 @@ module StringNumericHelper
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
   # @return [String] epured string
   def get_1int(sign = true)
-    return self.match(/([\d\-\+]*\d[\d\-\+]*)/).to_a[1].to_s.get_int(sign) if sign == true
-    return self.match(/([\d\-  ]*\d[\d\-]*)/).to_a[1].to_s.get_int(sign) if sign == :less
+    return self.match(/([\-\+]?\d+)/).to_a[1].to_s.get_int(sign) if sign == true
+    return self.match(/(\-?\d+)/).to_a[1].to_s.get_int(sign) if sign == :less
     return self.match(/(\d+)/).to_a[1].to_s.get_int(sign)
   end
 
@@ -56,7 +56,7 @@ module StringNumericHelper
     return self.replace(self.get_1int(sign))
   end
 
-  # get all integer groups
+  # get all digits into an array of string (split from self)
   # if sep is a sign and the param sign == true, then theses signs will be splited first
   # see also {#get_floats} and {#get_int}
   #
@@ -67,6 +67,19 @@ module StringNumericHelper
   def get_ints(sep = ' ', sign = true)
     raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp
     return self.split(sep).map{|e| e.get_int(sign)}
+  end
+
+  # get all integer groups into an array of string (split from self)
+  # if sep is a sign and the param sign == true, then theses signs will be splited first
+  # see also {#get_ints} and {#get_1int}
+  #
+  # @param sep [String or Regexp] separator
+  # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
+  # @raise ArgumentError if sep is not a String
+  # @return [Array of String]
+  def get_1ints(sep = ' ', sign = true)
+    raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp
+    return self.split(sep).map{|e| e.get_1int(sign)}
   end
 
   # get only the digits and + - . , symbols in the string
@@ -99,9 +112,16 @@ module StringNumericHelper
     return self.match(/([\d\.,]*\d[\d\.,]*)/).to_a[1].to_s.get_float(sign)
   end
 
-  # get all floats groups
+  # see {#get_1float}
+  #
+  # @return [String]
+  def get_1float!(sign = true)
+    return self.replace(self.get_1float(sign))
+  end
+
+  # get all digits groups
   # if sep is a sign and the param sign == true, then theses signs will be splited first
-  # see also {#get_float} and {#get_ints}
+  # see also {#get_1float} and {#get_floats}
   #
   # @param sep [String or Regexp] separator
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
@@ -112,11 +132,17 @@ module StringNumericHelper
     return self.split(sep).map{|e| e.get_float(sign)}
   end
 
-  # see {#get_1float}
+  # get all floats groups
+  # if sep is a sign and the param sign == true, then theses signs will be splited first
+  # see also {#get_float} and {#get_ints}
   #
-  # @return [String]
-  def get_1float!(sign = true)
-    return self.replace(self.get_1float(sign))
+  # @param sep [String or Regexp] separator
+  # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
+  # @raise ArgumentError if sep is not a String
+  # @return [Array of String]
+  def get_1floats(sep = ' ', sign = true)
+    raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp
+    return self.split(sep).map{|e| e.get_1float(sign)}
   end
 
   # transforme the string into an float in m² if containing "ha"
