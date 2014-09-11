@@ -247,7 +247,7 @@ module StringHelper
   # @return [String] epured_string
   def get_float(sign = true)
     return self.gsub(/[^\-\+\d\.\,]/, "") if sign == true
-    return self.gsub(/[^\d\.\,]/, "") if sign == true
+    return self.gsub(/[^\d\.\,]/, "")
   end
 
   # see {#get_float}
