@@ -20,7 +20,7 @@ module StringNumericHelper
     self.delete(char).to_i
   end
 
-  # get only the digits and + - symbols in the string
+  # It take every digits (and sign - see param sign) and return them
   # you should see also {#get_float}
   #
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
@@ -38,7 +38,8 @@ module StringNumericHelper
     return self.replace(self.get_int(sign))
   end
 
-  # get only the digits and + - symbols in the string of the first group of digits
+  # It take every digits (and sign - see param sign) of the first
+  # group of digits and return them. For exemple, "+3 4".get_1int will return "+3"
   # you should see also {#get_int} {#get_ints} and {#get_1float}
   #
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
@@ -58,6 +59,7 @@ module StringNumericHelper
 
   # get all digits into an array of string (split from self)
   # if sep is a sign and the param sign == true, then theses signs will be splited first
+  # (if sep == '-' for example, "1-1".get_ints will return ["1", "1"]
   # see also {#get_floats} and {#get_int}
   #
   # @param sep [String or Regexp] separator
@@ -82,7 +84,7 @@ module StringNumericHelper
     return self.split(sep).map{|e| e.get_1int(sign)}
   end
 
-  # get only the digits and + - . , symbols in the string
+  # get every digits and + - . , symbols in the string
   # you can also see {#to_fi} to turn the String into a Float
   # see als {#get_1float} {#get_floats} and {#get_int}
   #
@@ -101,7 +103,7 @@ module StringNumericHelper
     return self.replace(self.get_float(sign))
   end
 
-  # get only the digits and + - . , symbols in the string of the first group of digits
+  # get only the digits and + - . , symbols in the string from the first group of digits
   # you should see also {#get_float} and {#get_1int}
   #
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
@@ -119,7 +121,7 @@ module StringNumericHelper
     return self.replace(self.get_1float(sign))
   end
 
-  # get all digits groups
+  # get all digit and symboles from a splited string
   # if sep is a sign and the param sign == true, then theses signs will be splited first
   # see also {#get_1float} and {#get_floats}
   #
