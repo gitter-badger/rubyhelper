@@ -28,4 +28,22 @@ class NumericHelperTest < Minitest::Test
     assert_equal(1, (2.2).max(1))
   end
 
+  def test_odd?
+    assert_equal(false, 0.0.odd?)
+    assert_equal(true, 1.1.odd?)
+    assert_equal(false, 2.0.odd?)
+    assert_equal(true, 3.0.odd?)
+  end
+
+  def test_peer?
+    assert_equal(true, 0.0.peer?)
+    assert_equal(false, 1.1.peer?)
+    assert_equal(true, 2.0.peer?)
+    assert_equal(false, 3.0.peer?)
+  end
+
+  def test_solve_2d
+    #assert_equal([0], Numeric.solve_2d(1,0,0))
+  end
+
 end

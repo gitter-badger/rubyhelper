@@ -7,8 +7,7 @@ module ArrayHelper
   # Exemple : ["a", "b", "c"].joini(["x", "y"]) => "axbyc"
   #
   # @raise [ArgumentError] if sep in not an array or a string
-  # @param sep [Array] array of separators
-  # @param sep [String] uniq separator (join alias {#join})
+  # @param sep [Array or String] array of separators or string as an uniq separator (join alias {#join})
   # @return [String] string joined
   def joini sep
     if sep.is_a? Array
@@ -57,7 +56,7 @@ module ArrayHelper
   #
   # @return [Integer] self.sum / self.size. 0 if no elements
   def average
-    return (self.size > 0) ? (self.sum / self.size) : (0)
+    return (self.size > 0) ? (self.sum.to_f / self.size).round : (0)
   end
 
   # Same than {#average} but use to_f instead of to_i

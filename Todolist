@@ -1,12 +1,8 @@
 v1.4
 	** Improvements **
-	- Advanced version system
 	- Advanced Numeric functions
+	- Resolvation of simple 1th degree equations (NO MORE)
 	** New features **
 
-v1.3
-	** Improvements **
-	- Add more tests ! TESTING SCIENCES §§§! xD
-	** New feature **
-	- Valid version system
-	- Add few Numeric functions
+other
+- Hash.except with ` h.delete_if{|k| [:a].include? k} `

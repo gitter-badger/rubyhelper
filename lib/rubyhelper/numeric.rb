@@ -44,6 +44,33 @@ module NumericHelper
     return self.replace(self.min(maximum_value))
   end
 
+  # return true if peer
+  # you can see also {#odd?}
+  #
+  # @return [true or false]
+  def peer?
+    return (self % 2).zero? ? true : false
+  end
+
+  # return true if odd
+  # you can see also {#peer?}
+  #
+  # @return [true or false]
+  def odd?
+    not peer?
+  end
+
+  # Not ready yet
+  #
+  # Resolve a simple 2sd degree equation
+  #
+  # @param a [Numeric] a*x**2+b*x+c = y
+  # @param b [Numeric] a*x**2+b*x+c = y
+  # @param c [Numeric] a*x**2+b*x+c = y
+  # @return [Array of Numeric]
+  # def self.solve_2d a, b=0, c=0
+  # end
+
 end
 
 class Numeric

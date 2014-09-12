@@ -14,12 +14,13 @@ Gem::Specification.new do |s|
                	  "lib/rubyhelper.rb",
                	  "lib/rubyhelper/gem-version.rb",
               	  "lib/rubyhelper/string.rb",
+              	  "lib/rubyhelper/string_numeric.rb",
               	  "lib/rubyhelper/array.rb",
             	  "lib/rubyhelper/numeric.rb",
+            	  "lib/rubyhelper/integer.rb",
                   "lib/rubyhelper/time.rb",
                   "lib/rubyhelper/hash.rb",
                   "lib/rubyhelper/argumenterror.rb",
-                  "lib/rubyhelper/versionhelper.rb",
 		  "README.md",
 		  "Rakefile",
 		  "rubyhelper.gemspec",
@@ -27,7 +28,7 @@ Gem::Specification.new do |s|
 		  "test/test_hash.rb",
 		  "test/test_numeric.rb",
 		  "test/test_string.rb",
-		  "test/test_versionhelper.rb",
+		  "test/test_string_numeric.rb",
 		  ]
   s.homepage    = "https://gitlab.com/poulet_a/rubyhelper"
   s.license     = "GNU/GPLv3"
