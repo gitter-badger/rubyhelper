@@ -9,9 +9,6 @@ v1.3
 	- Add more tests ! TESTING SCIENCES §§§! xD
 	** New feature **
 	- Valid version system
-	- Add few Numeric functions
-	- Add get_1ints and get_1floats
-	- Improve get_float and get_int to do not keep sign between 2 \d
 
 other
 - Hash.except with ` h.delete_if{|k| [:a].include? k} `
