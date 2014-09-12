@@ -2,11 +2,13 @@ v1.3:
 	** Improvements **
 	- Split StringHelper into StringHelper and StringNumericHelper
 	- Improve String#get_int and String#get_float feature (sign can also be :less)
+	- Fix on String#get_float and it's tests
 	** New features **
 	- Add Integer#peer? ( = not odd?)
 	- Add String#ha2m2 to convert ha in m2 from string
 	- Add String#get_1int and String#get_1float (see String#get_int and String#get_float)
 	- Add String#get_ints and String#get_floats (see String#get_int and String#get_float)
+	- Add String#get_1ints and String#get_1floats (see String#get_ints and String#get_floats)
 	- Add Numeric#peer? and Numeric#odd?, add Integer#peer? too ;) (why no basic peer?)
 	** Fixs **
 	- Fix Array#average rounded dirty
