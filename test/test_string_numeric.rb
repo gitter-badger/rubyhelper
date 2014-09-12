@@ -43,6 +43,12 @@ class StringNumericHelperTest < Minitest::Test
     assert_equal(["1", "3+12"], "1 -3 +12".get_ints('-'))
   end
 
+  def test_get_1ints
+    assert_equal(["1", "-3", "+12"], "1 -3 +12".get_1ints())
+    assert_equal(["1", "-3", "+1"], "a1;aaa -3eze +1ez2ez".get_1ints())
+    assert_equal(["1", "3"], "1 -3 +12".get_1ints('-'))
+  end
+
   def test_get_float
     assert_equal("13,12", "13,12".get_float())
     assert_equal("-13.12", "ea -ze 13e.12 à nnazdaz d".get_float())
@@ -62,10 +68,16 @@ class StringNumericHelperTest < Minitest::Test
     assert_equal("-13.1", "ea -ze -13.1e12.2 à nnazdaz d".get_1float(:less))
   end
 
-  def test_get_ints
+  def test_get_floats
     assert_equal(["1", "-3", "+12"], "1 -3 +12".get_floats())
     assert_equal(["1", "-3.1", "+12"], "a1;aaa -3.1eze +1ez2ez".get_floats())
     assert_equal(["1", "3+12,2"], "1 -3 +12,2".get_floats('-'))
+  end
+
+  def test_get_1floats
+    assert_equal(["1", "-3", "+12"], "1 -3 +12".get_1floats())
+    assert_equal(["1", "-3.1", "+1"], "a1;aaa -3.1eze +1ez2ez".get_1floats())
+    assert_equal(["1", "3,1"], "1 -3,1 +12,2".get_1floats('-'))
   end
 
   def test_ha2m2
