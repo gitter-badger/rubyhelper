@@ -3,10 +3,5 @@ v1.4
 	- Advanced Numeric functions
 	** New features **
 
-v1.3
-	** Improvements **
-	- Add more tests ! TESTING SCIENCES §§§! xD
-	** New feature **
-
 other
 - Hash.except with ` h.delete_if{|k| [:a].include? k} `
