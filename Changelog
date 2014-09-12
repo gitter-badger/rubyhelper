@@ -14,6 +14,8 @@ v1.3:
 	- Fix Array#average rounded dirty
 	- Fix the String#get_float
 	- Fix tests on String#get_float
+	** Removed feature **
+	- VersionHelper is no more present because other gems do better word
 
 v1.2:
 	** Improvements **

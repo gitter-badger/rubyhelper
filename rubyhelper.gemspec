@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
                   "lib/rubyhelper/time.rb",
                   "lib/rubyhelper/hash.rb",
                   "lib/rubyhelper/argumenterror.rb",
-                  "lib/rubyhelper/versionhelper.rb",
 		  "README.md",
 		  "Rakefile",
 		  "rubyhelper.gemspec",
@@ -30,7 +29,6 @@ Gem::Specification.new do |s|
 		  "test/test_numeric.rb",
 		  "test/test_string.rb",
 		  "test/test_string_numeric.rb",
-		  "test/test_versionhelper.rb",
 		  ]
   s.homepage    = "https://gitlab.com/poulet_a/rubyhelper"
   s.license     = "GNU/GPLv3"

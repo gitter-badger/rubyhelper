@@ -14,4 +14,3 @@ require_relative 'rubyhelper/hash.rb'
 require_relative 'rubyhelper/argumenterror.rb'
 
 # new classes
-require_relative 'rubyhelper/versionhelper.rb'
