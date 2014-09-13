@@ -4,6 +4,7 @@ v1.4
 	- Resolvation of simple 1th degree equations (NO MORE)
 	- Use ArgumentError.force_type
 	- Improve ArgumentError
+	- Better conversion methods on String
 	** New features **
 
 other
