@@ -1,7 +1,9 @@
 #encoding: utf-8
 
+# Version
+require_relative 'gem-version.rb'
+
 # simple extension
-require_relative 'rubyhelper/gem-version.rb'
 require_relative 'rubyhelper/string.rb'
 require_relative 'rubyhelper/string_numeric.rb'
 require_relative 'rubyhelper/array.rb'

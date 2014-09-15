@@ -1,3 +1,7 @@
+v1.4:
+	** Improvements **
+	- String#ha2m2 is better and more efficient but not enough tested yet
+
 v1.3:
 	** Improvements **
 	- Split StringHelper into StringHelper and StringNumericHelper
