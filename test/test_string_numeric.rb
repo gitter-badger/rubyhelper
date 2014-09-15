@@ -90,6 +90,8 @@ class StringNumericHelperTest < Minitest::Test
     #advanced match
     assert_equal(12000, "1.2 Ha".ha2m2)
     assert_equal(12000, " 1,200 Ha".ha2m2)
+    assert_equal(10000.0, "1 ha (+ 10 m²)".ha2m2)
+    assert_equal(10000.0, "1 ha (+ 10 m2)".ha2m2)
 
     #not match
     assert_equal(1.0, "1 m2".ha2m2)
