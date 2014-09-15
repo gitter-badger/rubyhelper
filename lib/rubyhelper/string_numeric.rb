@@ -147,13 +147,17 @@ module StringNumericHelper
     return self.split(sep).map{|e| e.get_1float(sign)}
   end
 
+  # TODO : very good improvement
   # transforme the string into an float in m² if containing "ha"
   #
   # @return [Float]
   def ha2m2
-    return self.gsub("m2", "").get_1float.to_fi unless self.match(/(\A|[^[:alpha:]])ha(\Z|[^[:alpha:]])/i)
-    return self.gsub("m2", "").get_1float.to_fi * 10_000 unless self.match(/(\A|[^[:alpha:]])m(2|²)(\Z|[^[:alpha:]])/i)
-    return self.gsub("m2", "").get_1float.to_fi
+    v = self.get_1float
+    return "" if v.empty?
+    m2_i = self.index(/m(2|²)/i)
+    ha_i = self.index(/ha/i)
+    return v.to_fi if ha_i.nil? or (not m2_i.nil? and m2_i < ha_i)
+    return v.to_fi * 10_000
   end
 
 end
