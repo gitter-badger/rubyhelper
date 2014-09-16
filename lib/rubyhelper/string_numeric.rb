@@ -43,18 +43,22 @@ module StringNumericHelper
   # you should see also {#get_int} {#get_ints} and {#get_1float}
   #
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
+  # @param sep [String]
+  # @raise ArgumentError if sep not a String
   # @return [String] epured string
-  def get_1int(sign = true)
-    return self.match(/([\-\+]?\d+)/).to_a[1].to_s.get_int(sign) if sign == true
-    return self.match(/(\-?\d+)/).to_a[1].to_s.get_int(sign) if sign == :less
-    return self.match(/(\d+)/).to_a[1].to_s.get_int(sign)
+  def get_1int(sign = true, sep = "")
+    ArgumentError.force_type(sep, String, 'sep')
+    return self.delete(sep).match(/([\-\+]?\d+)/).to_a[1].to_s.get_int(sign) if sign == true
+    return self.delete(sep).match(/(\-?\d+)/).to_a[1].to_s.get_int(sign) if sign == :less
+    return self.delete(sep).match(/(\d+)/).to_a[1].to_s.get_int(sign)
   end
 
   # see {#get_1int}
   #
+  # @raise ArgumentError if sep not a String
   # @return [String]
-  def get_1int!(sign = true)
-    return self.replace(self.get_1int(sign))
+  def get_1int!(sign = true, sep = '')
+    return self.replace(self.get_1int(sign, sep))
   end
 
   # get all digits into an array of string (split from self)
@@ -75,13 +79,14 @@ module StringNumericHelper
   # if sep is a sign and the param sign == true, then theses signs will be splited first
   # see also {#get_ints} and {#get_1int}
   #
-  # @param sep [String or Regexp] separator
+  # @param firstsep [String or Regexp] separator
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
-  # @raise ArgumentError if sep is not a String
+  # @param sep [String] separator for {#get_1int}
+  # @raise ArgumentError if firstsep is not a String or if sep is not a String/Regexp
   # @return [Array of String]
-  def get_1ints(sep = ' ', sign = true)
-    raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp
-    return self.split(sep).map{|e| e.get_1int(sign)}
+  def get_1ints(firstsep = ' ', sign = true, sep = '')
+    raise ArgumentError, "firstsep must be a String" unless firstsep.is_a? String or firstsep.is_a? Regexp
+    return self.split(firstsep).map{|e| e.get_1int(sign, sep)}
   end
 
   # get every digits and + - . , symbols in the string
