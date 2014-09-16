@@ -5,6 +5,7 @@ v1.4
 	- Use ArgumentError.force_type
 	- Improve ArgumentError
 	- Better conversion methods on String
+	- Improve StringNumeric#get_1int etc to delete a espacement character
 	** New features **
 
 other
