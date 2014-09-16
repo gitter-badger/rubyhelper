@@ -35,6 +35,13 @@ class StringNumericHelperTest < Minitest::Test
     assert_equal("13", "ea -ze -13e12 à nnazdaz d".get_1int(false))
     assert_equal("-13", "ea -ze -13e12 à nnazdaz d".get_1int(:less))
     assert_equal("13", "ea -ze 13-13e12 à nnazdaz d".get_1int(false))
+    assert_equal("1312", "13 12.01".get_1int(true, ' '))
+  end
+
+  def test_get_1int_raise
+    assert_raises ArgumentError do
+      assert_equal("1312", "13 12.01".get_1int(true, 124))
+    end
   end
 
   def test_get_ints
@@ -47,6 +54,7 @@ class StringNumericHelperTest < Minitest::Test
     assert_equal(["1", "-3", "+12"], "1 -3 +12".get_1ints())
     assert_equal(["1", "-3", "+1"], "a1;aaa -3eze +1ez2ez".get_1ints())
     assert_equal(["1", "3"], "1 -3 +12".get_1ints('-'))
+    assert_equal(["11", "33"], "1 1\t3 3".get_1ints("\t", true, " "))
   end
 
   def test_get_float
