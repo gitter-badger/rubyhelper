@@ -39,6 +39,8 @@ in this gem ;)
 	Simple and usefull integer average (*averagef for Float version*)  
 - **Array.new.sum** => Integer  
 	Simple and usefull integer sum (*sumf for Float version*)  
+- **Array.new.strip** => Array  
+	Split every Strings of the Array :)  
 
 
 ## Notes about the source code
