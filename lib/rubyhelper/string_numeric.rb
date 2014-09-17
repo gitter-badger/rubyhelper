@@ -12,8 +12,8 @@ module StringNumericHelper
   # to_i with delimiter to remove
   # Example : "12.000.000".to_ii => 12000000
   #
-  # @param char [String] char to delete (default : ' ')
   # @raise [ArgumentError] If (param char) is not a String
+  # @param char [String] char to delete (default : ' ')
   # @return [Integer] like {Integer#to_i]
   def to_ii(char=' ')
     raise ArgumentError, "Argument is not a String" unless char.is_a? String
@@ -42,9 +42,9 @@ module StringNumericHelper
   # group of digits and return them. For exemple, "+3 4".get_1int will return "+3"
   # you should see also {#get_int} {#get_ints} and {#get_1float}
   #
+  # @raise ArgumentError if sep not a String
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
   # @param sep [String]
-  # @raise ArgumentError if sep not a String
   # @return [String] epured string
   def get_1int(sign = true, sep = '')
     ArgumentError.force_type(sep, String, 'sep')
@@ -66,9 +66,9 @@ module StringNumericHelper
   # (if sep == '-' for example, "1-1".get_ints will return ["1", "1"]
   # see also {#get_floats} and {#get_int}
   #
+  # @raise ArgumentError if sep is not a String
   # @param sep [String or Regexp] separator
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
-  # @raise ArgumentError if sep is not a String
   # @return [Array of String]
   def get_ints(sep = ' ', sign = true)
     raise ArgumentError, 'sep must be a String or a Regexp' unless sep.is_a? String or sep.is_a? Regexp
@@ -79,10 +79,10 @@ module StringNumericHelper
   # if sep is a sign and the param sign == true, then theses signs will be splited first
   # see also {#get_ints} and {#get_1int}
   #
+  # @raise ArgumentError if firstsep is not a String or if sep is not a String/Regexp
   # @param firstsep [String or Regexp] separator
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
   # @param sep [String] separator for {#get_1int}
-  # @raise ArgumentError if firstsep is not a String or if sep is not a String/Regexp
   # @return [Array of String]
   def get_1ints(firstsep = ' ', sign = true, sep = '')
     raise ArgumentError, "firstsep must be a String" unless firstsep.is_a? String or firstsep.is_a? Regexp
@@ -130,9 +130,9 @@ module StringNumericHelper
   # if sep is a sign and the param sign == true, then theses signs will be splited first
   # see also {#get_1float} and {#get_floats}
   #
+  # @raise ArgumentError if sep is not a String
   # @param sep [String or Regexp] separator
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
-  # @raise ArgumentError if sep is not a String
   # @return [Array of String]
   def get_floats(sep = ' ', sign = true)
     raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp
@@ -143,9 +143,9 @@ module StringNumericHelper
   # if sep is a sign and the param sign == true, then theses signs will be splited first
   # see also {#get_float} and {#get_ints}
   #
+  # @raise ArgumentError if sep is not a String
   # @param sep [String or Regexp] separator
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
-  # @raise ArgumentError if sep is not a String
   # @return [Array of String]
   def get_1floats(sep = ' ', sign = true)
     raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp

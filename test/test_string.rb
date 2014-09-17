@@ -4,6 +4,16 @@ require_relative '../lib/rubyhelper'
 
 class StringHelperTest < Minitest::Test
 
+  def test_utf8
+    assert_raises ArgumentError do
+      assert_equal('r'.utf8(1))
+    end
+  end
+
+  def test_utf8
+    assert_equal('bonjour', 'bonjour'.utf8)
+  end
+
   def test_to_plain
     assert_equal('bonjour', 'bonjour'.to_plain)
     assert_equal('bonjoure', 'bonjouré'.to_plain, 'bonjoure')
