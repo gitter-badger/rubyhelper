@@ -14,10 +14,10 @@ class StringNumericHelperTest < Minitest::Test
   end
 
   def test_to_ii
-    assert_equal(11, '1 1'.to_ii())
-    assert_equal(60868, '06.08.68'.to_ii('.'))
-    assert_equal(60868, '06.08.68'.to_ii('\. \t\-'))
-    assert_equal(0, 'a6 000'.to_ii(' '))
+    assert_equal(11, "1 1".to_ii())
+    assert_equal(60868, "06.08.68".to_ii("."))
+    assert_equal(60868, "06.08.68".to_ii("\. \t\-"))
+    assert_equal(0, "a6 000".to_ii(" "))
   end
 
   def test_to_ii_raise
@@ -27,12 +27,12 @@ class StringNumericHelperTest < Minitest::Test
   end
 
   def test_get_int
-    assert_equal('1312', '1312'.get_int())
-    assert_equal('-1312', 'ea -ze 13e12 à nnazdaz d'.get_int())
-    assert_equal('+1312', 'ea\n ze +13\n12\n à nnazdaz\n\t\n\r d'.get_int())
-    assert_equal('1312', 'ea\n ze -13\n12\n à nnazdaz\n\t\n\r d'.get_int(false))
-    assert_equal('-1312', 'ea\n ze -13\n12\n à nnazdaz\n\t\n\r d'.get_int(:less))
-    assert_equal('1312', 'ea\n ze +13\n12\n à nnazdaz\n\t\n\r d'.get_int(false))
+    assert_equal("1312", "1312".get_int())
+    assert_equal("-1312", "ea -ze 13e12 à nnazdaz d".get_int())
+    assert_equal("+1312", "ea\n ze +13\n12\n à nnazdaz\n\t\n\r d".get_int())
+    assert_equal("1312", "ea\n ze -13\n12\n à nnazdaz\n\t\n\r d".get_int(false))
+    assert_equal("-1312", "ea\n ze -13\n12\n à nnazdaz\n\t\n\r d".get_int(:less))
+    assert_equal("1312", "ea\n ze +13\n12\n à nnazdaz\n\t\n\r d".get_int(false))
   end
 
   def test_get_1int
@@ -58,20 +58,20 @@ class StringNumericHelperTest < Minitest::Test
   end
 
   def test_get_1ints
-    assert_equal(['1', '-3', '+12'], '1 -3 +12'.get_1ints())
-    assert_equal(['1', '-3', '+1'], 'a1;aaa -3eze +1ez2ez'.get_1ints())
-    assert_equal(['1', '3'], '1 -3 +12'.get_1ints('-'))
-    assert_equal(['11', '33'], '1 1\t3 3'.get_1ints('\t', true, ' '))
+    assert_equal(["1", "-3", "+12"], "1 -3 +12".get_1ints())
+    assert_equal(["1", "-3", "+1"], "a1;aaa -3eze +1ez2ez".get_1ints())
+    assert_equal(["1", "3"], "1 -3 +12".get_1ints("-"))
+    assert_equal(["11", "33"], "1 1\t3 3".get_1ints("\t", true, " "))
   end
 
   def test_get_float
-    assert_equal('13,12', '13,12'.get_float())
-    assert_equal('-13.12', 'ea -ze 13e.12 à nnazdaz d'.get_float())
-    assert_equal('+13.12', 'ea\n ze +13\n.12\n à nnazdaz\n\t\n\r d'.get_float())
-    assert_equal('-13.12', 'ea\n ze -13\n.12\n à nnazdaz\n\t\n\r d'.get_float())
-    assert_equal('--13.12', 'ea\n ze- -13\n.12\n à nnazdaz\n\t\n\r d'.get_float())
-    assert_equal('13.12', 'ea\n ze- -13\n.12\n à nnazdaz\n\t\n\r d'.get_float(false))
-    assert_equal('--13.12', 'ea\n ze- -13\n.12\n à nnazdaz\n\t\n\r d'.get_float(:less))
+    assert_equal("13,12", "13,12".get_float())
+    assert_equal("-13.12", "ea -ze 13e.12 à nnazdaz d".get_float())
+    assert_equal("+13.12", "ea\n ze +13\n.12\n à nnazdaz\n\t\n\r d".get_float())
+    assert_equal("-13.12", "ea\n ze -13\n.12\n à nnazdaz\n\t\n\r d".get_float())
+    assert_equal("--13.12", "ea\n ze- -13\n.12\n à nnazdaz\n\t\n\r d".get_float())
+    assert_equal("13.12", "ea\n ze- -13\n.12\n à nnazdaz\n\t\n\r d".get_float(false))
+    assert_equal("--13.12", "ea\n ze- -13\n.12\n à nnazdaz\n\t\n\r d".get_float(:less))
   end
 
   def test_get_1float
