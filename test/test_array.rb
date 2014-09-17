@@ -68,4 +68,9 @@ class ArrayHelperTest < Minitest::Test
    assert_equal([[:a, 2], [:b, 3], [:c, 4], [1, nil]], [:a, :b, :c, 1, 2, 3, 4].mirror)
   end
 
+  def test_do
+    assert_equal(["test", "test", "test"], [" test ", "test   \n", " \t test "].do(:strip))
+    assert_equal([["test"], ["test"], ["test"]], [" test ", "test   \n", " \t test "].do(:split))
+  end
+
 end
