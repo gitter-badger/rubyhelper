@@ -26,9 +26,9 @@ module StringNumericHelper
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
   # @return [String] epured string
   def get_int(sign = true)
-    return self.gsub(/[^\-\+\d]/, "") if sign == true
-    return self.gsub(/[^\-\d]/, "") if sign == :less
-    return self.gsub(/[^\d]/, "")
+    return self.gsub(/[^\-\+\d]/, '') if sign == true
+    return self.gsub(/[^\-\d]/, '') if sign == :less
+    return self.gsub(/[^\d]/, '')
   end
 
   # see {#get_int}
@@ -46,7 +46,7 @@ module StringNumericHelper
   # @param sep [String]
   # @raise ArgumentError if sep not a String
   # @return [String] epured string
-  def get_1int(sign = true, sep = "")
+  def get_1int(sign = true, sep = '')
     ArgumentError.force_type(sep, String, 'sep')
     return self.delete(sep).match(/([\-\+]?\d+)/).to_a[1].to_s.get_int(sign) if sign == true
     return self.delete(sep).match(/(\-?\d+)/).to_a[1].to_s.get_int(sign) if sign == :less
@@ -71,7 +71,7 @@ module StringNumericHelper
   # @raise ArgumentError if sep is not a String
   # @return [Array of String]
   def get_ints(sep = ' ', sign = true)
-    raise ArgumentError, "sep must be a String" unless sep.is_a? String or sep.is_a? Regexp
+    raise ArgumentError, 'sep must be a String or a Regexp' unless sep.is_a? String or sep.is_a? Regexp
     return self.split(sep).map{|e| e.get_int(sign)}
   end
 
@@ -96,9 +96,9 @@ module StringNumericHelper
   # @param sign [true or false or :less ] if true, keep the - and + signs, if :less, only keep -
   # @return [String] epured_string
   def get_float(sign = true)
-    return self.gsub(/[^\-\+\d\.\,]/, "") if sign == true
-    return self.gsub(/[^\-\d\.\,]/, "") if sign == :less
-    return self.gsub(/[^\d\.\,]/, "")
+    return self.gsub(/[^\-\+\d\.\,]/, '') if sign == true
+    return self.gsub(/[^\-\d\.\,]/, '') if sign == :less
+    return self.gsub(/[^\d\.\,]/, '')
   end
 
   # see {#get_float}
@@ -152,13 +152,12 @@ module StringNumericHelper
     return self.split(sep).map{|e| e.get_1float(sign)}
   end
 
-  # TODO : very good improvement
   # transforme the string into an float in m² if containing "ha"
   #
   # @return [Float]
   def ha2m2
     v = self.get_1float
-    return "" if v.empty?
+    return String.new if v.empty?
     m2_i = self.index(/m(2|²)/i)
     ha_i = self.index(/ha/i)
     return v.to_fi if ha_i.nil? or (not m2_i.nil? and m2_i < ha_i)
