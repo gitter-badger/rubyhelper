@@ -1,6 +1,6 @@
 module RubyHelper
 
   # Version cheat :)
-  VERSION = '1.4.alpha2'
+  VERSION = '1.4.alpha3'
 
 end
