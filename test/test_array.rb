@@ -10,7 +10,7 @@ class ArrayHelperTest < Minitest::Test
     assert_equal("s.S.s.S", ["s","S","s","S"].joini("."))
   end
 
-  def test_joini_error
+  def test_joini_raise
     assert_raises ArgumentError do
       [].joini 1
     end
@@ -20,6 +20,16 @@ class ArrayHelperTest < Minitest::Test
     assert_equal(12, [1,2,9].sum)
     assert_equal(0, [].sum)
     assert_equal(0, [-1,1].sum)
+  end
+
+  def test_sum_arg
+    assert_equal([4,4,4], [1,2,3].sum([3,2,1]))
+  end
+
+  def test_sum_raise
+    assert_raises ArgumentError do
+      [].sum 1
+    end
   end
 
   def test_sum_with_array
