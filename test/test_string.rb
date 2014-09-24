@@ -60,9 +60,15 @@ class StringHelperTest < Minitest::Test
     assert_equal('r', 'bonjour'.static(1, ' '))
     assert_equal('our', 'bonjour'.static(3, ' '))
     assert_equal('bonjour   ', 'bonjour'.static(10, ' '))
+  end
+
+  def test_static_front
     assert_equal('b', 'bonjour'.static(1, ' ', :front))
     assert_equal('bon', 'bonjour'.static(3, ' ', :front))
     assert_equal('   bonjour', 'bonjour'.static(10, ' ', :front))
+  end
+
+  def test_static_center
     assert_equal('j', 'bonjour'.static(1, ' ', :center))
     assert_equal('jo', 'bonjour'.static(2, ' ', :center))
     assert_equal('njo', 'bonjour'.static(3, ' ', :center))
@@ -72,6 +78,17 @@ class StringHelperTest < Minitest::Test
     assert_equal(' bonjour  ', 'bonjour'.static(10, ' ', :center))
     assert_equal('  bonjour  ', 'bonjour'.static(11, ' ', :center))
   end
+
+  def test_static_place_argument
+    assert_equal('r', 'bonjour'.static(1, ' ', :end))
+    assert_equal('r', 'bonjour'.static(1, ' ', :back))
+    assert_equal('r', 'bonjour'.static(1, ' ', :right))
+    assert_equal('j', 'bonjour'.static(1, ' ', :center))
+    assert_equal('j', 'bonjour'.static(1, ' ', :middle))
+    assert_equal('b', 'bonjour'.static(1, ' ', :begin))
+    assert_equal('b', 'bonjour'.static(1, ' ', :front))
+    assert_equal('b', 'bonjour'.static(1, ' ', :left))
+ end
 
   def test_to_t
     assert_equal(true, 'true'.to_t)

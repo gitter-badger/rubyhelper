@@ -141,14 +141,14 @@ module StringHelper
   # Get a str with a static length.
   # If the str size > n, reduce the str (keep str from the (param place) )
   # You should check the test files for examples
-  # Note : {#center} {#left} and {#right} do a similar work.
+  # Note : {#center} {#ljust} and {#rjust} do a similar work.
   #
   # @raise [ArgumentError] if n in not an integer/char a String
   # @param n [Integer] number of char
   # @param char [String] char to replace if the initial str is too short
   # @param place [Symbol] :begin/:front/:left :end/:back/:back :center/:middle
   # @return [String]
-  def static(n, char=' ', place= :right)
+  def static(n, char =' ', place = :right)
     raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String
     raise ArgumentError, 'n is not an Integer' unless n.is_a? Integer
     char = char[0] || " " # get only the first char or a space if empty
@@ -163,7 +163,7 @@ module StringHelper
       end
     else
       case place
-      when :begin, :front
+      when :begin, :front, :left
         return self[0...n]
       when :center, :middle
         return self[((-(size() +n - 1)) / 2)..((-(size() -n + 1)) / 2)]
