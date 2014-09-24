@@ -141,6 +141,7 @@ module StringHelper
   # Get a str with a static length.
   # If the str size > n, reduce the str (keep str from the (param place) )
   # You should check the test files for examples
+  # if the (param place) is not valid, the function will just return self
   # Note : {#center} {#ljust} and {#rjust} do a similar work.
   #
   # @raise [ArgumentError] if n in not an integer/char a String
