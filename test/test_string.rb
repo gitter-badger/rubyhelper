@@ -56,10 +56,18 @@ class StringHelperTest < Minitest::Test
     assert_equal('bonjour.', 'bonjour€'.to_ascii('.'))
   end
 
-  def test_static
-    assert_equal('r', 'bonjour'.static(1, ' '))
-    assert_equal('our', 'bonjour'.static(3, ' '))
-    assert_equal('bonjour   ', 'bonjour'.static(10, ' '))
+  def test_static_default_params
+    assert_equal('bonjour'.static(1), 'bonjour'.static(1, ' ', :back))
+  end
+
+  def test_static_replace_param
+    assert_equal('bonjour---', 'bonjour'.static(10, '-', :back))
+  end
+
+  def test_static_back
+    assert_equal('r', 'bonjour'.static(1, ' ', :back))
+    assert_equal('our', 'bonjour'.static(3, ' ', :back))
+    assert_equal('bonjour   ', 'bonjour'.static(10, ' ', :back))
   end
 
   def test_static_front
