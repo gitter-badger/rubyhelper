@@ -146,7 +146,7 @@ module StringHelper
   # @raise [ArgumentError] if n in not an integer/char a String
   # @param n [Integer] number of char
   # @param char [String] char to replace if the initial str is too short
-  # @param place [Symbol] :begin/:front/:left :end/:back/:back :center/:middle
+  # @param place [Symbol] :begin/:front/:left :end/:back/:rigth :center/:middle
   # @return [String]
   def static(n, char =' ', place = :right)
     raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String
@@ -158,8 +158,10 @@ module StringHelper
         return char * (n - size).to_i + self
       when :center, :middle
         return char * ((n - size) / 2) + self + char * ((n - size) / 2 + (n - size) % 2)
-      else
+      when :end, :back, :right
         return self + char * (n - size).to_i
+      else
+        return self
       end
     else
       case place
@@ -167,9 +169,11 @@ module StringHelper
         return self[0...n]
       when :center, :middle
         return self[((-(size() +n - 1)) / 2)..((-(size() -n + 1)) / 2)]
-      else
+      when :end, :back, :right
         return self[(-n)..(-1)]
-      end
+      else
+        return self
+     end
     end
   end
 
