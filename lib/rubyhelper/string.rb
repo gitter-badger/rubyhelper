@@ -146,15 +146,15 @@ module StringHelper
   # @raise [ArgumentError] if n in not an integer/char a String
   # @param n [Integer] number of char
   # @param char [String] char to replace if the initial str is too short
-  # @param place [Symbol] :begin/:front :end/:back :center/:middle
+  # @param place [Symbol] :begin/:front/:left :end/:back/:back :center/:middle
   # @return [String]
-  def static(n, char=' ', place= :back)
+  def static(n, char=' ', place= :right)
     raise ArgumentError, 'char is not an Char (String)' unless char.is_a? String
     raise ArgumentError, 'n is not an Integer' unless n.is_a? Integer
     char = char[0] || " " # get only the first char or a space if empty
     if size < n
       case place
-      when :begin, :front
+      when :begin, :front, :left
         return char * (n - size).to_i + self
       when :center, :middle
         return char * ((n - size) / 2) + self + char * ((n - size) / 2 + (n - size) % 2)
