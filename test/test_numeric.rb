@@ -26,6 +26,7 @@ class NumericHelperTest < Minitest::Test
     assert_equal(-1, (-1).max(0))
     assert_equal(0, 0.max(1))
     assert_equal(1, (2.2).max(1))
+    assert_equal(20, 100.max(20))
   end
 
   def test_odd?

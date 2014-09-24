@@ -1,7 +1,8 @@
 v1.4
 	** Improvements **
 	- Advanced Numeric functions
-	- Resolvation of simple 1th degree equations (NO MORE)
+	- Use ArgumentError.force_type
+	- Improve ArgumentError
 	** New features **
 
 other

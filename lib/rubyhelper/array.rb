@@ -118,6 +118,38 @@ module ArrayHelper
     return self[0..(size/2+size%2-1)].zip(self[(size/2+size%2)..-1])
   end
 
+  # try to use the method split on every element of the array
+  #
+  # @return [Array]
+  def strip
+    self.do(:strip)
+  end
+
+  # see {#split}
+  #
+  # @return [Array]
+  def split!
+    self.replace(self.strip)
+  end
+
+  # try to use the method (param method_to_exec) on every element of the array
+  #
+  # @raise ArgumentError if argument is not a string/symbol
+  # @param method_to_exec [String or Symbol] method name
+  # @return [Array]
+  def do(method_to_exec)
+    raise ArgumentError, "method_to_exec is not a valid Method" unless method_to_exec.is_a? String or method_to_exec.is_a? Symbol
+    self.map{|e| ((e.respond_to? method_to_exec) ? (e.public_send(method_to_exec)) : (e)) }
+  end
+
+  # see {#do}
+  #
+  # @raise ArgumentError via {#do}
+  # @return [Array]
+  def do!(method_to_exec)
+    self.replace(self.do(method_to_exec))
+  end
+
 end
 
 class Array

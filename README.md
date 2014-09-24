@@ -39,6 +39,8 @@ in this gem ;)
 	Simple and usefull integer average (*averagef for Float version*)  
 - **Array.new.sum** => Integer  
 	Simple and usefull integer sum (*sumf for Float version*)  
+- **Array.new.strip** => Array  
+	Split every Strings of the Array :)  
 
 
 ## Notes about the source code
@@ -77,24 +79,26 @@ is a little messy. Don't look back 1.1 ;)
 ## Note about the development
 ###Version
 Stable :  
-- X : major version, not compatible very with the previous. Lot of changes
-- X.Y : minor version, new features, almost fully compatible with other X.Y
-- X.Y.Z : release improvement, fix bugs, fully compatible with X.Y.Z
+- X : major version, not compatible very with the previous. Lot of changes  
+- X.Y : minor version, new features, almost fully compatible with other X.Y  
+- X.Y.Z : release improvement, fix bugs, fully compatible with X.Y.Z  
 
 Development :  
-- X.Y-alpha : 1th dev part. Dev new features
-- X.Y-beta : 2sd part. Dev tests, documentation, improvements, fix, few other feats
-- X.Y-rc : last part. Fixs, documentation, and tests only.
+- X.Y-alphaN : 1th dev part. Dev new features  
+- X.Y-betaN : 2sd part. Dev tests, documentation, improvements, fix, few other feats  
+- X.Y-rcN : last part. Fixs, documentation, and tests only.  
 
 ### Branchs
-- master : contain the last vX.Y.Z version published (stable)
-- dev : contain the last alpha/beta versions (dev)
-- release : contain the last rc versions (dev)
-- feature-* : new feature to merge (dev)
+- master : contain the last vX.Y.Z version published (stable)  
+- dev : contain the last alpha/beta versions (dev)  
+- release-X.Y : contain the last rc versions (dev)  
+- feature-*_NN : new feature to merge (dev)  
 - hotfixs-* : fix from release to merge with dev and X.Y (dev)
 
 
 # Contributors
 - poulet_a : Creator and main developer. Feel free to ask me a question by email.  
+	- Researchs, Tests, Documentation, Feature, Lead development
 	email: arthur.poulet AT cryptolab.net [OpenPGP : 0x6D9EA34A]  
 - bakhou_r : Developer from jerevedunemaison.com
+	- few Tests and Features

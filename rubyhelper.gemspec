@@ -1,4 +1,4 @@
-require_relative "lib/rubyhelper/gem-version"
+require_relative "lib/gem-version"
 
 Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email       = "poulet_a@epitech.eu",
   s.files       = [
                	  "lib/rubyhelper.rb",
-               	  "lib/rubyhelper/gem-version.rb",
+               	  "lib/gem-version.rb",
               	  "lib/rubyhelper/string.rb",
               	  "lib/rubyhelper/string_numeric.rb",
               	  "lib/rubyhelper/array.rb",
