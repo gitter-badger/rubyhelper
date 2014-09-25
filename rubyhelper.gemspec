@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
               	  "lib/rubyhelper/string_numeric.rb",
               	  "lib/rubyhelper/array.rb",
             	  "lib/rubyhelper/numeric.rb",
-            	  "lib/rubyhelper/integer.rb",
+            	  "lib/rubyhelper/fixnum.rb",
                   "lib/rubyhelper/time.rb",
                   "lib/rubyhelper/hash.rb",
                   "lib/rubyhelper/argumenterror.rb",
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
 		  "test/test_array.rb",
 		  "test/test_hash.rb",
 		  "test/test_numeric.rb",
+		  "test/test_fixnum.rb",
 		  "test/test_string.rb",
 		  "test/test_string_numeric.rb",
 		  ]
