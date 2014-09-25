@@ -17,6 +17,9 @@ class Fixnum
 end
 
 class Fixnum
+  # Add the possibility to add a Fixnum with a String
+  # It will change the fixnum into a string
+  # If the argument is not a String, it will use the normal + operation
   alias_method :old_add, :+
   def +(p)
     return self.to_s + p if p.is_a? String
