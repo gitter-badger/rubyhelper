@@ -169,3 +169,11 @@ end
 class String
   prepend StringNumericHelper
 end
+
+class String
+  alias_method :old_add, :+
+  def +(p)
+    return self + p.to_s if p.is_a? Fixnum
+    return self.old_add(p)
+  end
+end

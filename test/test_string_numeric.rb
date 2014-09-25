@@ -117,4 +117,21 @@ class StringNumericHelperTest < Minitest::Test
     assert_equal(50.0, '50.0 m² without the 1 ha of eastead'.ha2m2)
   end
 
+  def test_plus
+    assert_equal("test1", "test" + 1)
+    assert_equal("test0", "test" + 0)
+    assert_equal("test00", "test" + 0 + 0)
+    assert_equal("test1241", "test" + 124 + 1)
+    assert_equal("test125", "test" + (124 + 1))
+    20.times do
+      i = rand(0..4294967295)
+      assert_equal("test#{i}", "test" + i)
+    end
+  end
+
+  # use also #{Fixnum#+}
+  def test_plus_hybrid
+    assert_equal("test1test", "test" + 1 + "test")
+  end
+
 end
