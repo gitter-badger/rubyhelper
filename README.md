@@ -43,7 +43,7 @@ in this gem ;)
 	Split every Strings of the Array :)  
 
 
-## Notes about the source code
+## Development cycle
 The following sources code is not only my stuff, but also an implementation of
 idea found on stackoverflow, ...  
 
@@ -71,13 +71,13 @@ The developpement running like that :
 16. Publish the new release vX.Y.Z if needed  
 
 
+## Note about the development
+
 **Note about the first time developpement**  
 I didn't predict to keep this gem in dev so the first part of the dev
 is a little messy. Don't look back 1.1 ;)  
 
-
-## Note about the development
-###Version
+### Versions
 Stable :  
 - X : major version, not compatible very with the previous. Lot of changes  
 - X.Y : minor version, new features, almost fully compatible with other X.Y  
