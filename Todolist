@@ -1,8 +1,6 @@
 v1.4
 	** Improvements **
 	- Advanced Numeric functions
-	- Use ArgumentError.force_type
-	- Improve ArgumentError
 	** New features **
 
 other
