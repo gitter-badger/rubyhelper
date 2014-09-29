@@ -47,7 +47,7 @@ module StringNumericHelper
   # @param sep [String]
   # @return [String] epured string
   def get_1int(sign = true, sep = '')
-    ArgumentError.force_type(sep, String, 'sep')
+    raise ArgumentError, "sep must be a String" unless sep.is_a? String
     return self.delete(sep).match(/([\-\+]?\d+)/).to_a[1].to_s.get_int(sign) if sign == true
     return self.delete(sep).match(/(\-?\d+)/).to_a[1].to_s.get_int(sign) if sign == :less
     return self.delete(sep).match(/(\d+)/).to_a[1].to_s.get_int(sign)
