@@ -13,6 +13,6 @@ require_relative 'rubyhelper/time.rb'
 require_relative 'rubyhelper/hash.rb'
 
 # extension advanced
-require_relative 'rubyhelper/argumenterror.rb'
+# require_relative 'rubyhelper/argumenterror.rb'
 
 # new classes
