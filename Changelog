@@ -9,6 +9,8 @@ v1.4:
 	- Add Array#do
 	- Add Fixnum#+(String)
 	- Add String#+(Fixnum)
+	** Remove **
+	- ArgumentError#force_type
 
 v1.3:
 	** Improvements **
