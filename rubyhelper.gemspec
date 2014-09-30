@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'rubyhelper'
   s.version     = RubyHelper::VERSION
   s.date        = Time.now.getgm.to_s.split.first
-  s.summary     = "Hotfix of get_float"
+  s.summary     = "See Changelog"
   s.description = "Improvements and additions by poulet_a to the basic ruby classes"
   s.authors     = [
             	  "poulet_a"
@@ -17,16 +17,17 @@ Gem::Specification.new do |s|
               	  "lib/rubyhelper/string_numeric.rb",
               	  "lib/rubyhelper/array.rb",
             	  "lib/rubyhelper/numeric.rb",
-            	  "lib/rubyhelper/integer.rb",
+            	  "lib/rubyhelper/fixnum.rb",
                   "lib/rubyhelper/time.rb",
                   "lib/rubyhelper/hash.rb",
-                  "lib/rubyhelper/argumenterror.rb",
+                  # "lib/rubyhelper/argumenterror.rb",
 		  "README.md",
 		  "Rakefile",
 		  "rubyhelper.gemspec",
 		  "test/test_array.rb",
 		  "test/test_hash.rb",
 		  "test/test_numeric.rb",
+		  "test/test_fixnum.rb",
 		  "test/test_string.rb",
 		  "test/test_string_numeric.rb",
 		  ]

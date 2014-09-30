@@ -2,10 +2,15 @@ v1.4:
 	** Improvements **
 	- String#ha2m2 is better and more efficient but not enough tested yet
 	- String#get_1int and String#get_1ints to remove a separator in a number (like "1 000" => "1000")
-	- String#static improve argument placement. Now, invalid does return the initial string
+	- String#static improve argument placement.
+	- Improve static tests. Static require valid place argument
 	** New features **
 	- Add Array#strip
 	- Add Array#do
+	- Add Fixnum#+(String)
+	- Add String#+(Fixnum)
+	** Remove **
+	- ArgumentError#force_type
 
 v1.3:
 	** Improvements **

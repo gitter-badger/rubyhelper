@@ -47,7 +47,7 @@ module StringNumericHelper
   # @param sep [String]
   # @return [String] epured string
   def get_1int(sign = true, sep = '')
-    ArgumentError.force_type(sep, String, 'sep')
+    raise ArgumentError, "sep must be a String" unless sep.is_a? String
     return self.delete(sep).match(/([\-\+]?\d+)/).to_a[1].to_s.get_int(sign) if sign == true
     return self.delete(sep).match(/(\-?\d+)/).to_a[1].to_s.get_int(sign) if sign == :less
     return self.delete(sep).match(/(\d+)/).to_a[1].to_s.get_int(sign)
@@ -168,4 +168,15 @@ end
 
 class String
   prepend StringNumericHelper
+end
+
+class String
+  # Add the possibility to add a String with a Fixnum
+  # It will change the fixnum into a string
+  # If the argument is not a Fixnum, it will use the normal + operation
+  alias_method :old_add, :+
+  def +(p)
+    return self + p.to_s if p.is_a? Fixnum
+    return self.old_add(p)
+  end
 end
