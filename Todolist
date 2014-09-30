@@ -1,6 +1,8 @@
 v1.5
 	** Improvements **
+
 	** New features **
+
 
 other
 - Hash.except with ` h.delete_if{|k| [:a].include? k} `
