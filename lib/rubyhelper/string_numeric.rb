@@ -159,7 +159,7 @@ module StringNumericHelper
     v = self.get_1float
     return String.new if v.empty?
     m2_i = self.index(/m(2|²)/i)
-    ha_i = self.index(/ha/i)
+    ha_i = self.index(/ha|hectar/i)
     return v.to_fi if ha_i.nil? or (not m2_i.nil? and m2_i < ha_i)
     return v.to_fi * 10_000
   end
