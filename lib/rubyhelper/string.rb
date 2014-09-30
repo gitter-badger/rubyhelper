@@ -112,10 +112,11 @@ module StringHelper
 
   # CRYXOR (one time pad dirt application)
   #
+  # @param k [String]
   # @raise [ArgumentError] if key is not a valid String
   # @return [String] encrypted mail
   def ^(k)
-    raise ArgumentError, "The key MUST BE a String" unless key.is_a? String
+    raise ArgumentError, "The key MUST BE a String" unless k.is_a? String
     str = ""
     self.size.times do |i|
       str << (self[i].ord ^ k[i % k.size].ord).chr
