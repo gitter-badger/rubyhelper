@@ -125,10 +125,10 @@ module ArrayHelper
     self.do(:strip)
   end
 
-  # see {#split}
+  # see {#sptrip}
   #
   # @return [Array]
-  def split!
+  def strip!
     self.replace(self.strip)
   end
 
