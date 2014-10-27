@@ -33,7 +33,7 @@ module StringHelper
   # @param replace [String] if a char is not utf8 valid, character will replace it
   # @return [String] self changed without accents and non-utf-8 chars
   def to_plain(case_mod = nil, replace='')
-    return self.p(replace).utf8(replace).to_case(case_mod)
+    return self.p(replace).encode('ASCII', invalid: :replace, undef: :replace, replace: replace).to_case(case_mod)
   end
 
   # see {#to_plain}
