@@ -13,7 +13,7 @@ module StringHelper
   # @return [String] utf-8 string
   def utf8 replace=''
     raise ArgumentError, 'replace is not a valid char (String)' unless replace.is_a? String
-    return self.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: replace)
+    return self.encode('UTF-8', invalid: :replace, undef: :replace, replace: replace)
   end
 
   # see {#utf8}
