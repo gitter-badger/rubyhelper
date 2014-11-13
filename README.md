@@ -1,4 +1,5 @@
 # rubyhelper
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/pouleta/rubyhelper?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Last Stable Gem  
 [![Gem Version](https://badge.fury.io/rb/rubyhelper.svg)](http://badge.fury.io/rb/rubyhelper)  
